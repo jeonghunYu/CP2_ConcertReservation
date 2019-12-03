@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TextField layoutX="56.0" layoutY="94.0" prefHeight="38.0" prefWidth="234.0" />
+      <ListView layoutX="56.0" layoutY="143.0" prefHeight="323.0" prefWidth="286.0" />
+      <Button layoutX="383.0" layoutY="172.0" mnemonicParsing="false" prefHeight="101.0" prefWidth="194.0" text="신규 콘서트 추가" />
+      <Button layoutX="382.0" layoutY="316.0" mnemonicParsing="false" prefHeight="107.0" prefWidth="196.0" text="콘서트 취소" />
+      <Button layoutX="599.0" layoutY="189.0" mnemonicParsing="false" prefHeight="218.0" prefWidth="186.0" text="등록 / 취소 요청 열람" />
+      <Button layoutX="290.0" layoutY="95.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="52.0" text="검색" />
+      <Label layoutX="56.0" prefHeight="39.0" prefWidth="214.0" text="환영합니다! 관리자님^_^">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button layoutX="706.0" layoutY="445.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="69.0" text="뒤로가기" />
+      <Label layoutX="56.0" layoutY="53.0" prefHeight="34.0" prefWidth="270.0" text="콘서트 명을 검색해주세요.">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
