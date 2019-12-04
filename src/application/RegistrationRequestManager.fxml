@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <left>
+      <VBox prefHeight="537.0" prefWidth="282.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextField prefWidth="166.0" promptText="콘서트명" />
+            <ListView prefHeight="565.0" prefWidth="257.0">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </ListView>
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+         <padding>
+            <Insets bottom="80.0" left="40.0" top="40.0" />
+         </padding>
+      </VBox>
+   </left>
+   <right>
+      <VBox alignment="CENTER" prefHeight="440.0" prefWidth="300.0" spacing="50.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="등록 요청" />
+            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="등록 요청 취소" />
+            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="확정 &amp; 결제" />
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="80.0" top="40.0" />
+         </BorderPane.margin>
+      </VBox>
+   </right>
+   <top>
+      <Label text="콘서트 등록 요청하기" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets top="40.0" />
+         </BorderPane.margin>
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+   </top>
+   <center>
+      <ListView prefHeight="200.0" prefWidth="254.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="80.0" top="40.0" />
+         </BorderPane.margin>
+      </ListView>
+   </center>
+</BorderPane>
