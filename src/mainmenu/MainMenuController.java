@@ -25,8 +25,12 @@ public class MainMenuController {
 	@FXML public void reserveAction() {
 		try {
 			Parent reserve = FXMLLoader.load(getClass().getResource("/reservationAssistant/ReservationAssistant.fxml"));
-		    StackPane root = (StackPane)btnReserving.getScene().getRoot();
-		    root.getChildren().add(reserve);
+			Scene scene = new Scene(reserve);
+			Stage primaryStage = (Stage)btnEditing.getScene().getWindow();
+			primaryStage.setScene(scene);
+			 
+//			StackPane root = (StackPane)btnReserving.getScene().getRoot();
+//		    root.getChildren().add(reserve);
 		}
 		catch (Exception e) {
 			e.printStackTrace();

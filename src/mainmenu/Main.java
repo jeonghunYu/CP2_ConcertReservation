@@ -16,6 +16,7 @@ public class Main extends Application {
 			primaryStage.setTitle("콘서트 예매 프로그램");
 			scene.getStylesheets().add(getClass().getResource("mainmenu.css").toExternalForm());
 			primaryStage.setScene(scene);
+			primaryStage.setResizable(false);
 			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
