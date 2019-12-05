@@ -1,0 +1,30 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+.root {
+	-fx-background-color: radial-gradient(center 50% 50%, radius 60%, reflect, #ADFF2F, black );
+}
+.button {
+	-fx-background-color: #ebf5e0;
+	-fx-background-radius: 20;
+	-fx-border-color: #c3e0a3;
+	-fx-border-radius: 20;
+	-fx-font-weight: bold;
+	-fx-font-family: "Arial Black";
+	-fx-text-fill: #000000;
+	-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,4), 10, 0, 2, 2);
+}
+.label {
+	-fx-font-weight: bold;
+	-fx-text-fill: #000000;
+}
+VBox {
+	-fx-border-color: #98d85d;
+	-fx-border-style: solid;
+	-fx-padding: 10;
+	-fx-border-radius: 10;
+	-fx-background-radius: 10;
+	-fx-background-color: #d7ebc2;
+}
+#titleLabel {
+	-fx-font-weight: bold;
+	-fx-text-fill: #ffffff;
+}
