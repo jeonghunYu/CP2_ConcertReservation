@@ -13,14 +13,14 @@
       <ListView fx:id="concertHallList" layoutX="56.0" layoutY="143.0" prefHeight="323.0" prefWidth="286.0" />
       <Button fx:id="addNewConcertAction" layoutX="383.0" layoutY="172.0" mnemonicParsing="false" prefHeight="101.0" prefWidth="194.0" text="신규 콘서트 추가" />
       <Button fx:id="cancelConcertAction" layoutX="382.0" layoutY="316.0" mnemonicParsing="false" prefHeight="107.0" prefWidth="196.0" text="콘서트 취소" />
-      <Button fx:id="showRequestAction" layoutX="599.0" layoutY="189.0" mnemonicParsing="false" prefHeight="218.0" prefWidth="186.0" text="등록 / 취소 요청 열람" />
+      <Button fx:id="btnRequestList" layoutX="599.0" layoutY="189.0" mnemonicParsing="false" onAction="#moveToRequsetList" prefHeight="218.0" prefWidth="186.0" text="등록 / 취소 요청 열람" />
       <Button layoutX="290.0" layoutY="95.0" mnemonicParsing="false" onAction="#searchAction" prefHeight="37.0" prefWidth="52.0" text="검색" />
       <Label layoutX="56.0" prefHeight="39.0" prefWidth="214.0" text="환영합니다! 관리자님^_^">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Button fx:id="moveToMain" layoutX="706.0" layoutY="445.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="69.0" text="뒤로가기" />
+      <Button fx:id="btnMain" layoutX="706.0" layoutY="445.0" mnemonicParsing="false" onAction="#moveToMain" prefHeight="42.0" prefWidth="69.0" text="뒤로가기" />
       <Label layoutX="56.0" layoutY="53.0" prefHeight="34.0" prefWidth="270.0" text="콘서트 명을 검색해주세요.">
          <font>
             <Font size="22.0" />

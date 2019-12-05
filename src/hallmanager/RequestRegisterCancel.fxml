@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hallmanager.RequestRegisterCancelController">
    <children>
       <ListView fx:id="concertRequestList" layoutX="41.0" layoutY="112.0" prefHeight="356.0" prefWidth="343.0" />
       <Button layoutX="454.0" layoutY="112.0" mnemonicParsing="false" onAction="#acceptRequestAction" prefHeight="68.0" prefWidth="141.0" text="요청 승인하기" />
@@ -14,7 +14,7 @@
          <font>
             <Font size="22.0" />
          </font></Label>
-      <Button layoutX="707.0" layoutY="448.0" mnemonicParsing="false" onAction="#moveToHallManager" prefHeight="41.0" prefWidth="68.0" text="뒤로가기" />
+      <Button fx:id="btnHallManager" layoutX="707.0" layoutY="448.0" mnemonicParsing="false" onAction="#moveToHallManager" prefHeight="41.0" prefWidth="68.0" text="뒤로가기" />
       <Label layoutX="74.0" layoutY="14.0" text="환영합니다! 관리자님^_^">
          <font>
             <Font size="18.0" />
