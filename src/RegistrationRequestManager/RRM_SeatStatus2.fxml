@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
@@ -11,14 +10,12 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <HBox layoutX="215.0" layoutY="77.0" prefHeight="100.0" prefWidth="200.0" spacing="130.0">
+      <HBox layoutX="156.0" layoutY="60.0" prefHeight="100.0" prefWidth="200.0" spacing="300.0">
          <children>
-            <HBox spacing="10.0">
+            <HBox prefHeight="240.0" prefWidth="95.0" spacing="10.0">
                <children>
-                  <VBox prefHeight="208.0">
+                  <VBox alignment="BOTTOM_LEFT" prefHeight="208.0">
                      <children>
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
                         <CheckBox mnemonicParsing="false" />
                         <CheckBox mnemonicParsing="false" />
                         <CheckBox mnemonicParsing="false" />
@@ -52,8 +49,10 @@
                         <CheckBox mnemonicParsing="false" />
                      </children>
                   </VBox>
-                  <VBox alignment="BOTTOM_LEFT" prefHeight="208.0">
+                  <VBox prefHeight="208.0">
                      <children>
+                        <CheckBox mnemonicParsing="false" />
+                        <CheckBox mnemonicParsing="false" />
                         <CheckBox mnemonicParsing="false" />
                         <CheckBox mnemonicParsing="false" />
                         <CheckBox mnemonicParsing="false" />
@@ -76,28 +75,17 @@
                         <CheckBox mnemonicParsing="false" />
                         <CheckBox mnemonicParsing="false" />
                         <CheckBox mnemonicParsing="false" />
-                     </children>
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                     <padding>
-                        <Insets top="32.0" />
-                     </padding>
-                  </VBox>
-                  <VBox prefHeight="208.0">
-                     <children>
+                        <CheckBox mnemonicParsing="false" />
+                        <CheckBox mnemonicParsing="false" />
+                        <CheckBox mnemonicParsing="false" />
+                        <CheckBox mnemonicParsing="false" />
+                        <CheckBox mnemonicParsing="false" />
                         <CheckBox mnemonicParsing="false" />
                         <CheckBox mnemonicParsing="false" />
                         <CheckBox mnemonicParsing="false" />
                         <CheckBox mnemonicParsing="false" />
                         <CheckBox mnemonicParsing="false" />
                      </children>
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                     <padding>
-                        <Insets top="32.0" />
-                     </padding>
                   </VBox>
                </children>
             </HBox>
@@ -110,52 +98,6 @@
                         <CheckBox mnemonicParsing="false" />
                         <CheckBox mnemonicParsing="false" />
                         <CheckBox mnemonicParsing="false" />
-                     </children>
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                     <padding>
-                        <Insets top="32.0" />
-                     </padding>
-                  </VBox>
-                  <VBox prefHeight="208.0">
-                     <children>
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                     </children>
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                     <padding>
-                        <Insets top="32.0" />
-                     </padding>
-                  </VBox>
-                  <VBox alignment="BOTTOM_LEFT" prefHeight="208.0">
-                     <children>
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                     </children>
-                  </VBox>
-                  <VBox alignment="BOTTOM_LEFT" prefHeight="208.0">
-                     <children>
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
                         <CheckBox mnemonicParsing="false" />
                         <CheckBox mnemonicParsing="false" />
                         <CheckBox mnemonicParsing="false" />
@@ -172,6 +114,41 @@
                      <children>
                         <CheckBox mnemonicParsing="false" />
                         <CheckBox mnemonicParsing="false" />
+                        <CheckBox mnemonicParsing="false" />
+                        <CheckBox mnemonicParsing="false" />
+                        <CheckBox mnemonicParsing="false" />
+                        <CheckBox mnemonicParsing="false" />
+                        <CheckBox mnemonicParsing="false" />
+                        <CheckBox mnemonicParsing="false" />
+                        <CheckBox mnemonicParsing="false" />
+                        <CheckBox mnemonicParsing="false" />
+                        <CheckBox mnemonicParsing="false" />
+                        <CheckBox mnemonicParsing="false" />
+                        <CheckBox mnemonicParsing="false" />
+                        <CheckBox mnemonicParsing="false" />
+                        <CheckBox mnemonicParsing="false" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="BOTTOM_LEFT" prefHeight="208.0">
+                     <children>
+                        <CheckBox mnemonicParsing="false" />
+                        <CheckBox mnemonicParsing="false" />
+                        <CheckBox mnemonicParsing="false" />
+                        <CheckBox mnemonicParsing="false" />
+                        <CheckBox mnemonicParsing="false" />
+                        <CheckBox mnemonicParsing="false" />
+                        <CheckBox mnemonicParsing="false" />
+                        <CheckBox mnemonicParsing="false" />
+                        <CheckBox mnemonicParsing="false" />
+                        <CheckBox mnemonicParsing="false" />
+                        <CheckBox mnemonicParsing="false" />
+                        <CheckBox mnemonicParsing="false" />
+                        <CheckBox mnemonicParsing="false" />
+                        <CheckBox mnemonicParsing="false" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="BOTTOM_LEFT" prefHeight="208.0">
+                     <children>
                         <CheckBox mnemonicParsing="false" />
                         <CheckBox mnemonicParsing="false" />
                         <CheckBox mnemonicParsing="false" />
@@ -191,7 +168,7 @@
             </HBox>
          </children>
       </HBox>
-      <HBox layoutX="289.0" layoutY="317.0" prefHeight="100.0" spacing="30.0">
+      <HBox layoutX="273.0" layoutY="308.0" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
          <children>
             <VBox spacing="10.0">
                <children>
@@ -203,9 +180,10 @@
                         <CheckBox mnemonicParsing="false" />
                         <CheckBox mnemonicParsing="false" />
                         <CheckBox mnemonicParsing="false" />
+                        <CheckBox mnemonicParsing="false" />
                      </children>
                   </HBox>
-                  <HBox alignment="TOP_RIGHT">
+                  <HBox>
                      <children>
                         <CheckBox mnemonicParsing="false" />
                         <CheckBox mnemonicParsing="false" />
@@ -213,10 +191,24 @@
                         <CheckBox mnemonicParsing="false" />
                         <CheckBox mnemonicParsing="false" />
                         <CheckBox mnemonicParsing="false" />
+                        <CheckBox mnemonicParsing="false" />
                      </children>
                   </HBox>
-                  <HBox alignment="TOP_RIGHT">
+                  <HBox>
                      <children>
+                        <CheckBox mnemonicParsing="false" />
+                        <CheckBox mnemonicParsing="false" />
+                        <CheckBox mnemonicParsing="false" />
+                        <CheckBox mnemonicParsing="false" />
+                        <CheckBox mnemonicParsing="false" />
+                        <CheckBox mnemonicParsing="false" />
+                        <CheckBox mnemonicParsing="false" />
+                     </children>
+                  </HBox>
+                  <HBox>
+                     <children>
+                        <CheckBox mnemonicParsing="false" />
+                        <CheckBox mnemonicParsing="false" />
                         <CheckBox mnemonicParsing="false" />
                         <CheckBox mnemonicParsing="false" />
                         <CheckBox mnemonicParsing="false" />
@@ -236,6 +228,18 @@
                         <CheckBox mnemonicParsing="false" />
                         <CheckBox mnemonicParsing="false" />
                         <CheckBox mnemonicParsing="false" />
+                        <CheckBox mnemonicParsing="false" />
+                     </children>
+                  </HBox>
+                  <HBox>
+                     <children>
+                        <CheckBox mnemonicParsing="false" />
+                        <CheckBox mnemonicParsing="false" />
+                        <CheckBox mnemonicParsing="false" />
+                        <CheckBox mnemonicParsing="false" />
+                        <CheckBox mnemonicParsing="false" />
+                        <CheckBox mnemonicParsing="false" />
+                        <CheckBox mnemonicParsing="false" />
                      </children>
                   </HBox>
                   <HBox>
@@ -246,10 +250,13 @@
                         <CheckBox mnemonicParsing="false" />
                         <CheckBox mnemonicParsing="false" />
                         <CheckBox mnemonicParsing="false" />
+                        <CheckBox mnemonicParsing="false" />
                      </children>
                   </HBox>
                   <HBox>
                      <children>
+                        <CheckBox mnemonicParsing="false" />
+                        <CheckBox mnemonicParsing="false" />
                         <CheckBox mnemonicParsing="false" />
                         <CheckBox mnemonicParsing="false" />
                         <CheckBox mnemonicParsing="false" />
@@ -266,22 +273,37 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="202.0" layoutY="417.0" text="138">
+      <Label layoutX="202.0" layoutY="417.0" text="170">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="77.0" layoutY="470.0" text="선택한 좌석 수:">
+      <Label layoutX="77.0" layoutY="470.0" text="예약된 좌석 수:">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="208.0" layoutY="472.0" text="0" />
-      <Label layoutX="383.0" layoutY="30.0" text="무대">
+      <Label layoutX="208.0" layoutY="472.0" text="0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="383.0" layoutY="33.0" text="무대">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
-      <Button layoutX="365.0" layoutY="464.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="70.0" text="예매하기" />
+      <Label layoutX="105.0" layoutY="519.0" text="총 좌석 수:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="202.0" layoutY="519.0" text="170">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Button layoutX="400.0" layoutY="459.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="예약 접수 시작" />
+      <Button layoutX="524.0" layoutY="459.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="예약 접수 종료" />
    </children>
 </AnchorPane>
