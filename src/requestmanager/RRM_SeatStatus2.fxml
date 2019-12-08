@@ -305,5 +305,6 @@
       </Label>
       <Button layoutX="400.0" layoutY="459.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="예약 접수 시작" />
       <Button layoutX="524.0" layoutY="459.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="예약 접수 종료" />
+      <Button fx:id="btnRRM" layoutX="716.0" layoutY="546.0" mnemonicParsing="false" onAction="#moveToRRM" prefHeight="40.0" prefWidth="70.0" text="뒤로가기" />
    </children>
 </AnchorPane>
