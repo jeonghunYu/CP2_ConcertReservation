@@ -31,7 +31,7 @@
                   <Font size="22.0" />
                </font>
             </Label>
-            <Button layoutX="691.0" layoutY="446.0" mnemonicParsing="false" onAction="#moveToLogin" prefHeight="40.0" prefWidth="78.0" text="로그아웃" />
+            <Button fx:id="btnLogOut" layoutX="691.0" layoutY="446.0" mnemonicParsing="false" onAction="#moveToLogin" prefHeight="40.0" prefWidth="78.0" text="로그아웃" />
             <VBox layoutX="430.0" layoutY="42.0" prefHeight="187.0" prefWidth="338.0" spacing="8.0">
                <children>
                   <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="35.0" prefWidth="366.0" text="회원 정보" textAlignment="CENTER">

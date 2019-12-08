@@ -1,17 +1,28 @@
 package mainmenu;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.Socket;
+import java.net.URL;
+import java.net.UnknownHostException;
+import java.util.ResourceBundle;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import login.LoginController;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.control.Button;
 
-public class MainMenuController {
+public class MainMenuController implements Initializable {
 
 	@FXML Label idLabel;
 	@FXML Label nameLabel;
@@ -21,7 +32,24 @@ public class MainMenuController {
 	@FXML Label phoneNumLabel;
 	@FXML Button btnReserving;
 	@FXML Button btnEditing;
+	@FXML Button btnLogOut;
 
+	Socket 			socket;
+	PrintWriter 	out = null;
+	BufferedReader 	in = null;
+	
+	String 		inputLine;
+	String[] 	command;
+	
+	
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		idLabel.setText(LoginController.getId());
+		nameLabel.setText(LoginController.getName());
+		authorityLabel.setText(LoginController.getType());
+		phoneNumLabel.setText(LoginController.getContact());
+	}
+	
 	@FXML public void reserveAction() {
 		try {
 			Parent reserve = FXMLLoader.load(getClass().getResource("/reservationAssistant/ReservationAssistant.fxml"));
@@ -53,6 +81,22 @@ public class MainMenuController {
 
 	@FXML public void showDate() {}
 
-	@FXML public void moveToLogin() {}
+	@FXML public void moveToLogin() {
+		try {
+			socket = new Socket("cs-cnu.tk", 50000);
+			out = new PrintWriter(socket.getOutputStream(), true);
+			out.println("logout");
+			Parent login = FXMLLoader.load(getClass().getResource("/login/Login.fxml"));
+		    Scene scene = new Scene(login);
+		    Stage primaryStage = (Stage)btnLogOut.getScene().getWindow();
+		    primaryStage.setScene(scene);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+	
 
 }
