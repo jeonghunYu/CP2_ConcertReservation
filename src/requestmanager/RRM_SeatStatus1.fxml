@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -10,328 +11,288 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <HBox layoutX="131.0" layoutY="122.0" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
+      <HBox layoutX="46.0" layoutY="120.0" spacing="40.0">
          <children>
-            <VBox prefHeight="200.0" prefWidth="100.0" spacing="20.0">
+            <VBox spacing="20.0">
                <children>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
+                  <HBox>
                      <children>
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="choiceSeat" />
+                           </toggleGroup>
+                        </ToggleButton>
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
                      </children>
                   </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
+                  <HBox>
                      <children>
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
                      </children>
                   </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
+                  <HBox>
                      <children>
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
                      </children>
                   </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
+                  <HBox>
                      <children>
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
                      </children>
                   </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
+                  <HBox>
                      <children>
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
                      </children>
                   </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
+                  <HBox>
                      <children>
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
                      </children>
                   </HBox>
                </children>
             </VBox>
-            <VBox prefHeight="200.0" prefWidth="100.0" spacing="20.0">
+            <VBox spacing="20.0">
                <children>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
+                  <HBox>
                      <children>
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
                      </children>
                   </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
+                  <HBox>
                      <children>
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
                      </children>
                   </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
+                  <HBox>
                      <children>
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
                      </children>
                   </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
+                  <HBox>
                      <children>
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
                      </children>
                   </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
+                  <HBox>
                      <children>
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
                      </children>
                   </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
+                  <HBox>
                      <children>
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
                      </children>
                   </HBox>
                </children>
             </VBox>
-            <VBox prefHeight="200.0" prefWidth="100.0" spacing="20.0">
+            <VBox spacing="20.0">
                <children>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
+                  <HBox>
                      <children>
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
                      </children>
                   </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
+                  <HBox>
                      <children>
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
                      </children>
                   </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
+                  <HBox>
                      <children>
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
                      </children>
                   </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
+                  <HBox>
                      <children>
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
                      </children>
                   </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
+                  <HBox>
                      <children>
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
                      </children>
                   </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
+                  <HBox>
                      <children>
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
                      </children>
                   </HBox>
                </children>
             </VBox>
-            <VBox prefHeight="200.0" prefWidth="100.0" spacing="20.0">
+            <VBox spacing="20.0">
                <children>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
+                  <HBox>
                      <children>
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
                      </children>
                   </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
+                  <HBox>
                      <children>
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
                      </children>
                   </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
+                  <HBox>
                      <children>
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
                      </children>
                   </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
+                  <HBox>
                      <children>
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
                      </children>
                   </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
+                  <HBox>
                      <children>
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
                      </children>
                   </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
+                  <HBox>
                      <children>
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
-                        <CheckBox mnemonicParsing="false" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="20.0" prefWidth="21.0" toggleGroup="$choiceSeat" />
                      </children>
                   </HBox>
                </children>
@@ -343,7 +304,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="202.0" layoutY="417.0" text="196">
+      <Label layoutX="202.0" layoutY="417.0" text="168">
          <font>
             <Font size="14.0" />
          </font>
@@ -362,14 +323,14 @@
             <Font size="17.0" />
          </font>
       </Label>
-      <Button layoutX="400.0" layoutY="459.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="예약 접수 시작" />
-      <Button layoutX="524.0" layoutY="459.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="예약 접수 종료" />
+      <Button layoutX="557.0" layoutY="450.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="예약 접수 시작" />
+      <Button layoutX="674.0" layoutY="450.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="예약 접수 종료" />
       <Label layoutX="105.0" layoutY="519.0" text="총 좌석 수:">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="202.0" layoutY="519.0" text="196">
+      <Label layoutX="202.0" layoutY="519.0" text="168">
          <font>
             <Font size="14.0" />
          </font>
