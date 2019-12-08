@@ -1,0 +1,4 @@
+ /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+.toggle-button:selected {
+	-fx-background-color: #7b68ee;
+}

@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -20,7 +21,7 @@
                   <Button mnemonicParsing="false" onAction="#searchAction" prefHeight="22.0" prefWidth="62.0" text="검색" />
                </children>
             </HBox>
-            <ListView fx:id="concertHallList" prefHeight="565.0" prefWidth="166.0">
+            <ListView fx:id="concertListView" prefHeight="565.0" prefWidth="166.0">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
@@ -34,17 +35,6 @@
          </padding>
       </VBox>
    </left>
-   <right>
-      <VBox alignment="CENTER" prefHeight="317.0" prefWidth="404.0" spacing="50.0" BorderPane.alignment="CENTER">
-         <children>
-            <Button fx:id="btnReservation" mnemonicParsing="false" onAction="#moveToSeatStatus" prefHeight="50.0" prefWidth="100.0" text="예매하기" />
-            <Button mnemonicParsing="false" onAction="#reservationCancelAction" prefHeight="50.0" prefWidth="100.0" text="예매 취소하기" />
-         </children>
-         <BorderPane.margin>
-            <Insets bottom="80.0" top="40.0" />
-         </BorderPane.margin>
-      </VBox>
-   </right>
    <top>
       <Label text="콘서트 예매하기" BorderPane.alignment="CENTER">
          <BorderPane.margin>
@@ -55,4 +45,13 @@
          </font>
       </Label>
    </top>
+   <right>
+      <AnchorPane prefHeight="437.0" prefWidth="358.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btnReservation" layoutX="116.0" layoutY="117.0" mnemonicParsing="false" onAction="#moveToSeatStatus" prefHeight="50.0" prefWidth="100.0" text="예매하기" />
+            <Button layoutX="116.0" layoutY="219.0" mnemonicParsing="false" onAction="#reservationCancelAction" prefHeight="50.0" prefWidth="100.0" text="예매 취소하기" />
+            <Button fx:id="btnMain" layoutX="274.0" layoutY="383.0" mnemonicParsing="false" onAction="#moveToMain" prefHeight="40.0" prefWidth="70.0" text="뒤로가기" />
+         </children>
+      </AnchorPane>
+   </right>
 </BorderPane>
