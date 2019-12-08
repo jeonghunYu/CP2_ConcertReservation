@@ -23,7 +23,7 @@
                </columns>
             </TableView>
             <Button fx:id="btnReserving" layoutX="430.0" layoutY="236.0" mnemonicParsing="false" onAction="#reserveAction" prefHeight="50.0" prefWidth="146.0" text="예매하기" />
-            <Button layoutX="521.0" layoutY="305.0" mnemonicParsing="false" onAction="#addConcertAction" prefHeight="50.0" prefWidth="146.0" text="행사 등록" />
+            <Button fx:id="btnMoveToAddConcert" layoutX="521.0" layoutY="305.0" mnemonicParsing="false" onAction="#addConcertAction" prefHeight="50.0" prefWidth="146.0" text="행사 등록" />
             <Button fx:id="btnEditing" layoutX="605.0" layoutY="236.0" mnemonicParsing="false" onAction="#editScheduleAction" prefHeight="50.0" prefWidth="146.0" text="행사 스케줄 조정" />
             <DatePicker layoutX="500.0" layoutY="370.0" onAction="#showDate" />
             <Label fx:id="titleLabel" layoutX="120.0" layoutY="42.0" prefHeight="40.0" prefWidth="187.0" text="금일의 추천 콘서트">

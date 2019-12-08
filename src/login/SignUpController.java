@@ -38,9 +38,9 @@ public class SignUpController {
 //	TODO 강제종료시 logout 작동하도록 하는 방법 여쭤보기.
 	@FXML public void signUp() {
 		try {
-			socket = new Socket("cs-cnu.tk", 50000);
-			out = new PrintWriter(socket.getOutputStream(), true);
-			in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+			socket = Main.getSocket();
+			out = Main.getOut();
+			in = Main.getIn();
 
 			if(authority.getSelectedToggle() == null) {
 //				TODO 오류 창
@@ -83,9 +83,6 @@ public class SignUpController {
 					e.printStackTrace();
 				}
 			}
-			socket.close();
-			out.close();
-			in.close();
 		}
 		catch (Exception e) {
 			e.printStackTrace();

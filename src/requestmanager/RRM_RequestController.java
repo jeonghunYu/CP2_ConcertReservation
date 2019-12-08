@@ -1,5 +1,12 @@
 package requestmanager;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.Socket;
+import java.net.UnknownHostException;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
@@ -7,9 +14,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import login.Main;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 
 public class RRM_RequestController {
 
@@ -17,6 +26,11 @@ public class RRM_RequestController {
 	@FXML TextField concertNameField;
 	@FXML ImageView seatView;
 	@FXML Button btnRRM;
+	@FXML DatePicker concertDate;
+	
+	Socket 			socket;
+	PrintWriter 	out = null;
+	BufferedReader 	in = null;
 	
 	private Image[] imageRes = {
 			new Image(getClass().getResource("images/concertHall1.jpg").toString()),
@@ -47,8 +61,23 @@ public class RRM_RequestController {
 		return index;
 	}
 	
-	@FXML public void requestAction() {
-
+	@FXML public void requestAction() throws UnknownHostException, IOException {
+		socket = login.Main.getSocket();
+		out = login.Main.getOut();
+		in = login.Main.getIn();
+		
+		int year = concertDate.getValue().getYear();
+		int month = concertDate.getValue().getMonthValue();
+		int day = concertDate.getValue().getDayOfMonth();
+		
+		String date = Integer.toString(year);
+		if(month < 10) date += "0";
+		date += Integer.toString(month);
+		if(day < 10) date += "0";
+		date += Integer.toString(day);
+		
+		out.println("requestRegistration/" + concertNameField.getText() + "/" + date + "/" + totalSeatNum[index]);
+		
 	}
 
 	@FXML public void moveToRRM() {
