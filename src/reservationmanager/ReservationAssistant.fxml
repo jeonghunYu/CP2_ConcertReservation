@@ -6,15 +6,21 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reservationmanager.ReservationAssistantController">
    <left>
       <VBox prefHeight="600.0" prefWidth="400.0" BorderPane.alignment="CENTER">
          <children>
-            <TextField prefWidth="166.0" promptText="콘서트명" />
-            <ListView prefHeight="565.0" prefWidth="166.0">
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <TextField fx:id="searchField" prefHeight="22.0" prefWidth="299.0" promptText="콘서트명" />
+                  <Button mnemonicParsing="false" onAction="#searchAction" prefHeight="22.0" prefWidth="62.0" text="검색" />
+               </children>
+            </HBox>
+            <ListView fx:id="concertHallList" prefHeight="565.0" prefWidth="166.0">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
@@ -31,8 +37,8 @@
    <right>
       <VBox alignment="CENTER" prefHeight="317.0" prefWidth="404.0" spacing="50.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="예매하기" />
-            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="예매 취소하기" />
+            <Button fx:id="btnReservation" mnemonicParsing="false" onAction="#moveToSeatStatus" prefHeight="50.0" prefWidth="100.0" text="예매하기" />
+            <Button mnemonicParsing="false" onAction="#reservationCancelAction" prefHeight="50.0" prefWidth="100.0" text="예매 취소하기" />
          </children>
          <BorderPane.margin>
             <Insets bottom="80.0" top="40.0" />
