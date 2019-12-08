@@ -53,9 +53,9 @@ public class LoginController {
 	
 	@FXML public void moveToMainMenu() {
 		try {
-			socket = new Socket("cs-cnu.tk", 50000);
-			out = new PrintWriter(socket.getOutputStream(), true);
-			in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+			socket = Main.getSocket();
+			out = Main.getOut();
+			in = Main.getIn();
 			
 //			TODO 로그인 검증 (null 값 입력 안되게)
 			out.println("login/" + idfield.getText() + "/" + pwfield.getText());

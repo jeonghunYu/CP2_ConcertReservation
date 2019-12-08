@@ -9,6 +9,7 @@ import java.net.URL;
 import java.net.UnknownHostException;
 import java.util.ResourceBundle;
 
+import application.Main;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -33,6 +34,7 @@ public class MainMenuController implements Initializable {
 	@FXML Button btnReserving;
 	@FXML Button btnEditing;
 	@FXML Button btnLogOut;
+	@FXML Button btnMoveToAddConcert;
 
 	Socket 			socket;
 	PrintWriter 	out = null;
@@ -40,6 +42,7 @@ public class MainMenuController implements Initializable {
 	
 	String 		inputLine;
 	String[] 	command;
+	
 	
 	
 	@Override
@@ -56,16 +59,23 @@ public class MainMenuController implements Initializable {
 			Scene scene = new Scene(reserve);
 			Stage primaryStage = (Stage)btnEditing.getScene().getWindow();
 			primaryStage.setScene(scene);
-			 
-//			StackPane root = (StackPane)btnReserving.getScene().getRoot();
-//		    root.getChildren().add(reserve);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
-	@FXML public void addConcertAction() {}
+	@FXML public void addConcertAction() {
+		try {
+			Parent reserve = FXMLLoader.load(getClass().getResource("/requestmanager/RegistrationRequestManager.fxml"));
+			Scene scene = new Scene(reserve);
+			Stage primaryStage = (Stage)btnMoveToAddConcert.getScene().getWindow();
+			primaryStage.setScene(scene);
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 	@FXML public void editScheduleAction() {
 		try {
@@ -83,8 +93,8 @@ public class MainMenuController implements Initializable {
 
 	@FXML public void moveToLogin() {
 		try {
-			socket = new Socket("cs-cnu.tk", 50000);
-			out = new PrintWriter(socket.getOutputStream(), true);
+			socket = login.Main.getSocket();
+			out = login.Main.getOut();
 			out.println("logout");
 			Parent login = FXMLLoader.load(getClass().getResource("/login/Login.fxml"));
 		    Scene scene = new Scene(login);
