@@ -55,7 +55,7 @@ public class MainMenuController implements Initializable {
 	
 	@FXML public void reserveAction() {
 		try {
-			Parent reserve = FXMLLoader.load(getClass().getResource("/reservationAssistant/ReservationAssistant.fxml"));
+			Parent reserve = FXMLLoader.load(getClass().getResource("/reservationmanager/ReservationAssistant.fxml"));
 			Scene scene = new Scene(reserve);
 			Stage primaryStage = (Stage)btnEditing.getScene().getWindow();
 			primaryStage.setScene(scene);

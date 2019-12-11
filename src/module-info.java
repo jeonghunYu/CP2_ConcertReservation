@@ -5,4 +5,5 @@ open module Comp2_JavaFX {
 	requires javafx.graphics;
 	requires javafx.media;
 	requires java.desktop;
+	requires java.base;
 }
