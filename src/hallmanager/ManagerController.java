@@ -1,10 +1,14 @@
 package hallmanager;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.function.Predicate;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -30,18 +34,42 @@ public class ManagerController implements Initializable {
 	@FXML Button btnRequestList;
 	@FXML Button btnShowHallSeats;
 	
+	PrintWriter out;
+	BufferedReader in;
+	
+	static String[] strConcertList;
+	
 	private ObservableList<String> concertList;
 	
 	private FilteredList<String> filteredList; 
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		out = login.LoginController.getOut();
+		in = login.LoginController.getIn();
+		
 		concertList = FXCollections.observableArrayList();
 		concertHallList.setItems(concertList);
 		filteredList = new FilteredList<String>(concertList);
+		
+		out.println("getAllConcertList");
+		try {
+			String concert = in.readLine();
+			strConcertList = concert.split("//");
+			System.out.println(concert);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(!strConcertList[0].equals("")) {
+			for(int i = 0; i < strConcertList.length; i++) {
+				String[] concert = strConcertList[i].split("/");
+				Platform.runLater(() -> concertList.add(concert[0] + " " + concert[2]));
+			}
+		}
 	}
 
-	//	TODO °Ë»ö ¿¹¿ÜÃ³¸®
+	//	TODO ï¿½Ë»ï¿½ ï¿½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½
 	@FXML public void searchAction() {
 		filteredList.setPredicate(new Predicate<String>() {
 
@@ -88,29 +116,29 @@ public class ManagerController implements Initializable {
 		try {
 			int selectedIndex = concertHallList.getSelectionModel().getSelectedIndex();
 			if(selectedIndex < 0) {
-				new Alert(Alert.AlertType.WARNING, "È®ÀÎÇÏ½Ç ÄÜ¼­Æ®¸¦ ¼±ÅÃÇÏ¼¼¿ä.", ButtonType.CLOSE).show();
+				new Alert(Alert.AlertType.WARNING, "È®ï¿½ï¿½ï¿½Ï½ï¿½ ï¿½Ü¼ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½.", ButtonType.CLOSE).show();
 				return;
 			}
-//			TODO if,else ifÁ¶°Ç¹®¿¡¼­ selectedIndex¸¦ ´Ù ¹Ù²ãÁà¾ßÇÔ ´Ù¸¥ °É·Î ±¸ºÐÇØ¾ÆÇÔ
+//			TODO if,else ifï¿½ï¿½ï¿½Ç¹ï¿½ï¿½ï¿½ï¿½ï¿½ selectedIndexï¿½ï¿½ ï¿½ï¿½ ï¿½Ù²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½ ï¿½É·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¾ï¿½ï¿½ï¿½
 			if(selectedIndex == 1) {
 				Parent hall1 = FXMLLoader.load(getClass().getResource("reservationAssistant/RA_SeatStatus1.fxml"));
 				Scene scene = new Scene(hall1);
 				Stage primaryStage = (Stage)btnShowHallSeats.getScene().getWindow();
-//				TODO cssº¯°æ : scene.getStylesheets().add(getClass().getResource("hallmanager.css").toExternalForm());
+//				TODO cssï¿½ï¿½ï¿½ï¿½ : scene.getStylesheets().add(getClass().getResource("hallmanager.css").toExternalForm());
 				primaryStage.setScene(scene);
 			}
 			else if(selectedIndex == 2) {
 				Parent hall2 = FXMLLoader.load(getClass().getResource("reservationAssistant/RA_SeatStatus2.fxml"));
 				Scene scene = new Scene(hall2);
 				Stage primaryStage = (Stage)btnShowHallSeats.getScene().getWindow();
-//				TODO cssº¯°æ : scene.getStylesheets().add(getClass().getResource("hallmanager.css").toExternalForm());
+//				TODO cssï¿½ï¿½ï¿½ï¿½ : scene.getStylesheets().add(getClass().getResource("hallmanager.css").toExternalForm());
 				primaryStage.setScene(scene);
 			}
 			else if(selectedIndex == 3) {
 				Parent hall3 = FXMLLoader.load(getClass().getResource("reservationAssistant/RA_SeatStatus3.fxml"));
 				Scene scene = new Scene(hall3);
 				Stage primaryStage = (Stage)btnShowHallSeats.getScene().getWindow();
-//				TODO cssº¯°æ : scene.getStylesheets().add(getClass().getResource("hallmanager.css").toExternalForm());
+//				TODO cssï¿½ï¿½ï¿½ï¿½ : scene.getStylesheets().add(getClass().getResource("hallmanager.css").toExternalForm());
 				primaryStage.setScene(scene);
 			}
 		}
@@ -123,10 +151,10 @@ public class ManagerController implements Initializable {
 //		TODO
 		int selectedIndex = concertHallList.getSelectionModel().getSelectedIndex();
 		if(selectedIndex < 0) {
-			new Alert(Alert.AlertType.WARNING, "»èÁ¦ÇÒ ÄÜ¼­Æ®¸¦ ¼±ÅÃÇÏ¼¼¿ä.", ButtonType.CLOSE).show();
+			new Alert(Alert.AlertType.WARNING, "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ü¼ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½.", ButtonType.CLOSE).show();
 			return;
 		}
-		Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "»èÁ¦ÇÏ½Ã°Ú½À´Ï±î?", ButtonType.OK, ButtonType.CANCEL);
+		Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "ï¿½ï¿½ï¿½ï¿½ï¿½Ï½Ã°Ú½ï¿½ï¿½Ï±ï¿½?", ButtonType.OK, ButtonType.CANCEL);
 		Optional<ButtonType> result = alert.showAndWait();
 		if(result.get() == ButtonType.OK) {
 			concertList.remove(selectedIndex);

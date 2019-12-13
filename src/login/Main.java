@@ -12,21 +12,13 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class Main extends Application {
-
-	static Socket 			socket;
-	static PrintWriter 		out;
-	static BufferedReader 	in;
 	
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			socket = new Socket("cs-cnu.tk", 50000);
-			out = new PrintWriter(socket.getOutputStream(), true);
-			in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-			
 			Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
 			Scene scene = new Scene(root);
-			primaryStage.setTitle("ÄÜ¼­Æ® ¿¹¸Å ÇÁ·Î±×·¥");
+			primaryStage.setTitle("ï¿½Ü¼ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î±×·ï¿½");
 			// scene.getStylesheets().add(getClass().getResource("hallmanager.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.setResizable(false);
@@ -38,15 +30,5 @@ public class Main extends Application {
 
 	public static void main(String[] args) {
 		launch(args);
-	}
-	
-	public static Socket getSocket() {
-		return socket;
-	}
-	public static PrintWriter getOut() {
-		return out;
-	}
-	public static BufferedReader getIn() {
-		return in;
 	}
 }

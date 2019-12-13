@@ -8,8 +8,13 @@ import java.net.Socket;
 import java.net.URL;
 import java.net.UnknownHostException;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
 import java.util.ResourceBundle;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -38,6 +43,8 @@ public class RRM_RequestController implements Initializable {
 	PrintWriter 	out = null;
 	BufferedReader 	in = null;
 	
+	String[] strConcertList;
+
 	private Image[] imageRes = {
 			new Image(getClass().getResource("images/concertHall1.jpg").toString()),
 			new Image(getClass().getResource("images/concertHall2.jpg").toString()),
@@ -68,21 +75,22 @@ public class RRM_RequestController implements Initializable {
 	}
 	
 	@FXML public void requestAction() throws UnknownHostException, IOException {
-		socket = login.Main.getSocket();
-		out = login.Main.getOut();
-		in = login.Main.getIn();
-		
 		int year = concertDate.getValue().getYear();
 		int month = concertDate.getValue().getMonthValue();
 		int day = concertDate.getValue().getDayOfMonth();
 		
 		String date = Integer.toString(year);
+		date += "-";
 		if(month < 10) date += "0";
 		date += Integer.toString(month);
+		date += "-";
 		if(day < 10) date += "0";
 		date += Integer.toString(day);
 		
 		out.println("requestRegistration/" + concertNameField.getText() + "/" + date + "/" + totalSeatNum[index]);
+		
+		
+		moveToRRM();
 		
 	}
 
@@ -102,6 +110,22 @@ public class RRM_RequestController implements Initializable {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		out = login.LoginController.getOut();
+		in = login.LoginController.getIn();
+//		TODO
+		
+		strConcertList = RegistrationRequestManagerController.strConcertList;
+		ArrayList<LocalDate> concertDateList = new ArrayList<>();
+		for(int i = 0; i < strConcertList.length; i++) {
+			if(strConcertList[i].split("/").length < 2) {
+				
+			} else {
+				String date = strConcertList[i].split("/")[2];
+				concertDateList.add(LocalDate.parse(date));
+			}
+		}
+		System.out.println(Arrays.deepToString(strConcertList));
+		
 		concertDate.setValue(LocalDate.now());
 		Callback<DatePicker, DateCell> dayCellFactory = dp -> new DateCell()
         {
@@ -111,9 +135,9 @@ public class RRM_RequestController implements Initializable {
             public void updateItem(LocalDate item, boolean empty)
             {
                 super.updateItem(item, empty);
-                if(item.isBefore(LocalDate.now()))
+                if(item.isBefore(LocalDate.now()) || concertDateList.contains(item))
                 {
-                    setStyle("-fx-background-color: #ffc0cb;");
+                    setStyle("-fx-background-color: #808080;");
 					setDisable(true);
                 }
             }
