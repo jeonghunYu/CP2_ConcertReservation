@@ -93,8 +93,7 @@ public class MainMenuController implements Initializable {
 
 	@FXML public void moveToLogin() {
 		try {
-			socket = login.Main.getSocket();
-			out = login.Main.getOut();
+			out = login.LoginController.getOut();
 			out.println("logout");
 			Parent login = FXMLLoader.load(getClass().getResource("/login/Login.fxml"));
 		    Scene scene = new Scene(login);

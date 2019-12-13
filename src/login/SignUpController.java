@@ -35,39 +35,39 @@ public class SignUpController {
 	int checkSignUp = -1;
 	@FXML Button btnMoveToLogin;
 	
-//	TODO °­Á¦Á¾·á½Ã logout ÀÛµ¿ÇÏµµ·Ï ÇÏ´Â ¹æ¹ý ¿©Âåº¸±â.
+//	TODO ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ logout ï¿½Ûµï¿½ï¿½Ïµï¿½ï¿½ï¿½ ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½åº¸ï¿½ï¿½.
 	@FXML public void signUp() {
 		try {
-			socket = Main.getSocket();
-			out = Main.getOut();
-			in = Main.getIn();
+			socket = LoginController.getSocket();
+			out = LoginController.getOut();
+			in = LoginController.getIn();
 
 			if(authority.getSelectedToggle() == null) {
-//				TODO ¿À·ù Ã¢
+//				TODO ï¿½ï¿½ï¿½ï¿½ Ã¢
 			} else if(authority.getSelectedToggle().getUserData().toString().equals("audience")) {
 				out.println("addAudience/" + nameField.getText() + "/" + idField.getText() + "/" + passwordField.getText() + "/" + phoneNumField.getText());
 				if(in.readLine().equals("-1")) {
-//					TODO È¸¿ø°¡ÀÔ ¿À·ù ¸Þ½ÃÁö
+//					TODO È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½
 				} else {
 					checkSignUp = 1;
-//					TODO È¸¿ø°¡ÀÔ ¼º°ø ¸Þ½ÃÁö
+//					TODO È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½
 				}
 			} else if(authority.getSelectedToggle().getUserData().toString().equals("eventRegistrant")) {
 				out.println("addEventRegistrant/" + nameField.getText() + "/" + idField.getText() + "/" + passwordField.getText() + "/" + phoneNumField.getText());
 				if(in.readLine().equals("-1")) {
-//					TODO È¸¿ø°¡ÀÔ ¿À·ù ¸Þ½ÃÁö Platform.run¹¹½Ã±â
+//					TODO È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ Platform.runï¿½ï¿½ï¿½Ã±ï¿½
 				} else {
 					checkSignUp = 1;
 					System.out.println("success");
-//					TODO È¸¿ø°¡ÀÔ ¼º°ø ¸Þ½ÃÁö
+//					TODO È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½
 				}
 			} else {
 				out.println("addManager/" + nameField.getText() + "/" + idField.getText() + "/" + passwordField.getText() + "/" + phoneNumField.getText());
 				if(in.readLine().equals("-1")) {
-//					TODO È¸¿ø°¡ÀÔ ¿À·ù ¸Þ½ÃÁö Platform.run¹¹½Ã±â
+//					TODO È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½ Platform.runï¿½ï¿½ï¿½Ã±ï¿½
 				} else {
 					checkSignUp = 1;
-//					TODO È¸¿ø°¡ÀÔ ¼º°ø ¸Þ½ÃÁö
+//					TODO È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ½ï¿½ï¿½ï¿½
 				}
 			}
 			
