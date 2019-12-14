@@ -7,6 +7,7 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.URL;
 import java.net.UnknownHostException;
+import java.util.Arrays;
 import java.util.ResourceBundle;
 
 import application.Main;
@@ -76,21 +77,24 @@ public class MainMenuController implements Initializable {
       
       randomConcertView.setItems(randomConcertList);
       
-      out.println("getAllConcertList");
-      String[] strConcertList = null;
-		try {
-			String concert = in.readLine();
-			strConcertList = concert.split("//");
-			System.out.println(concert);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		if(!strConcertList[0].equals("")) {
-			for(int i = 0; i < strConcertList.length; i++) {
-				String[] concert = strConcertList[i].split("/");
-				randomConcertList.add(concert[2] + " " + concert[0] + " " + concert[4] + "/" + concert[1]);
+      refresh();
+   }
+   public void refresh() {
+	   out.println("getAllConcertList");
+	      String[] strConcertList = null;
+			try {
+				String concert = in.readLine();
+				strConcertList = concert.split("//");
+				System.out.println(concert);
+			} catch (IOException e) {
+				e.printStackTrace();
 			}
-		}
+			if(!strConcertList[0].equals("")) {
+				for(int i = 0; i < strConcertList.length; i++) {
+					String[] concert = strConcertList[i].split("/");
+					Platform.runLater(() -> randomConcertList.add(concert[2] + " " + concert[0] + " " + concert[4] + "/" + concert[1]));
+				}
+			}
    }
    
    @FXML public void reserveAction() {

@@ -23,7 +23,9 @@ import javafx.stage.Stage;
 import javafx.scene.control.ListView;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextArea;
 
 public class RegistrationRequestManagerController implements Initializable {
@@ -80,9 +82,11 @@ public class RegistrationRequestManagerController implements Initializable {
 			@Override
 			public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
 //				TODO
-				String[] concert = strConcertList[(int) newValue].split("/");
-				selectedConcertInfo.setText("Title : " + concert[0] + "\nNumberOfSeat : " + concert[1]
-						+ "\nDate : " + concert[2]);
+				if((int) newValue >= 0) {
+					String[] concert = strConcertList[(int) newValue].split("/");
+					selectedConcertInfo.setText("Title : " + concert[0] + "\nNumberOfSeat : " + concert[1]
+							+ "\nDate : " + concert[2]);
+				}
 			}
 
 		});
@@ -114,6 +118,9 @@ public class RegistrationRequestManagerController implements Initializable {
 	}
 	
 	@FXML public void requestCancel() {
+		if(concertListView.getSelectionModel().getSelectedIndex() < 0) {
+			new Alert(Alert.AlertType.WARNING, "취소 요청하실 콘서트를 선택해주세요.", ButtonType.CLOSE).show();
+		}
 		System.out.println("cancelRequest/" + concertListView.getSelectionModel().getSelectedIndex());
 		out.println("cancelRequest/" + concertListView.getSelectionModel().getSelectedIndex());
 	}
@@ -121,19 +128,24 @@ public class RegistrationRequestManagerController implements Initializable {
 	@FXML public void moveToSeatStatus() {
 		try {
 			selectedConcertIndex = concertListView.getSelectionModel().getSelectedIndex();
-			String[] selectedConcert = strConcertList[selectedConcertIndex].split("/");
-			Parent status = null;
-			for(int i = 0; i < RRM_RequestController.getTotalSeatNum().length; i++) {
-				if(Integer.parseInt(RRM_RequestController.getTotalSeatNum()[i]) == Integer.parseInt(selectedConcert[1])) {
-					status = FXMLLoader.load(getClass().getResource("/requestmanager/SeatStatus" + i + ".fxml"));
-					break;
+			if(selectedConcertIndex < 0) {
+				new Alert(Alert.AlertType.WARNING, "자리 현황을 확인하실 콘서트를 선택해주세요.", ButtonType.CLOSE).show();
+			} 
+			else {
+				String[] selectedConcert = strConcertList[selectedConcertIndex].split("/");
+				Parent status = null;
+				for(int i = 0; i < RRM_RequestController.getTotalSeatNum().length; i++) {
+					if(Integer.parseInt(RRM_RequestController.getTotalSeatNum()[i]) == Integer.parseInt(selectedConcert[1])) {
+						status = FXMLLoader.load(getClass().getResource("/requestmanager/SeatStatus" + i + ".fxml"));
+						break;
+					}
 				}
+				Scene scene = new Scene(status);
+				Stage primaryStage = (Stage)btnSeatStatus.getScene().getWindow();
+				scene.getStylesheets().add(getClass().getResource("/mainmenu/mainmenu.css").toExternalForm());
+				primaryStage.setScene(scene);
+				requestmanager.SeatStatusController.setControllerType(0);
 			}
-			Scene scene = new Scene(status);
-			Stage primaryStage = (Stage)btnSeatStatus.getScene().getWindow();
-			scene.getStylesheets().add(getClass().getResource("/mainmenu/mainmenu.css").toExternalForm());
-			primaryStage.setScene(scene);
-			requestmanager.SeatStatusController.setControllerType(0);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

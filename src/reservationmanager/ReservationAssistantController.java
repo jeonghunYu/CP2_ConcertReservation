@@ -21,7 +21,9 @@ import javafx.stage.Stage;
 import javafx.scene.control.ListView;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextArea;
 
 public class ReservationAssistantController implements Initializable {
@@ -121,21 +123,22 @@ public class ReservationAssistantController implements Initializable {
 	
 	@FXML public void moveToSeatStatus() {
 		try {
-			Parent seat = null;
-			if((selectedConcertIndex = concertListView.getSelectionModel().getSelectedIndex()) >= 0) {
-				String[] selectedConcert = strConcertList[selectedConcertIndex].split("/");
-				for(int i = 0; i < requestmanager.RRM_RequestController.getTotalSeatNum().length; i++) {
-					if(requestmanager.RRM_RequestController.getTotalSeatNum()[i].equals(selectedConcert[1])) {
-						seat = FXMLLoader.load(getClass().getResource("/reservationmanager/SeatStatus" + i + ".fxml"));
-						break;
+				Parent seat = null;
+				if((selectedConcertIndex = concertListView.getSelectionModel().getSelectedIndex()) >= 0) {
+					String[] selectedConcert = strConcertList[selectedConcertIndex].split("/");
+					for(int i = 0; i < requestmanager.RRM_RequestController.getTotalSeatNum().length; i++) {
+						if(requestmanager.RRM_RequestController.getTotalSeatNum()[i].equals(selectedConcert[1])) {
+							seat = FXMLLoader.load(getClass().getResource("/reservationmanager/SeatStatus" + i + ".fxml"));
+							break;
+						}
 					}
+					Scene scene = new Scene(seat);
+					Stage primaryStage = (Stage)btnReservation.getScene().getWindow();
+					scene.getStylesheets().add(getClass().getResource("/mainmenu/mainmenu.css").toExternalForm());
+					primaryStage.setScene(scene);
+				} else {
+					new Alert(Alert.AlertType.WARNING, "예매하실 콘서트를 선택해주세요.", ButtonType.CLOSE).show();
 				}
-			}
-			
-			Scene scene = new Scene(seat);
-			Stage primaryStage = (Stage)btnReservation.getScene().getWindow();
-			scene.getStylesheets().add(getClass().getResource("/mainmenu/mainmenu.css").toExternalForm());
-			primaryStage.setScene(scene);
 		}
 		catch (Exception e) {
 			e.printStackTrace();

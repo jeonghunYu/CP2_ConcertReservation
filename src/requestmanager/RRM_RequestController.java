@@ -27,7 +27,9 @@ import javafx.util.Callback;
 import login.Main;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.DateCell;
 import javafx.scene.control.DatePicker;
 
@@ -78,23 +80,26 @@ public class RRM_RequestController implements Initializable {
 	}
 	
 	@FXML public void requestAction() throws UnknownHostException, IOException {
-		int year = concertDate.getValue().getYear();
-		int month = concertDate.getValue().getMonthValue();
-		int day = concertDate.getValue().getDayOfMonth();
-		
-		String date = Integer.toString(year);
-		date += "-";
-		if(month < 10) date += "0";
-		date += Integer.toString(month);
-		date += "-";
-		if(day < 10) date += "0";
-		date += Integer.toString(day);
-		
-		out.println("requestRegistration/" + concertNameField.getText() + "/" + date + "/" + totalSeatNum[index]);
-		
-		
-		moveToRRM();
-		
+		if(concertNameField.getText().equals("")) {
+			new Alert(Alert.AlertType.WARNING, "등록하실 행사명을 입력해주세요.", ButtonType.CLOSE).show();
+		}
+		else {
+			int year = concertDate.getValue().getYear();
+			int month = concertDate.getValue().getMonthValue();
+			int day = concertDate.getValue().getDayOfMonth();
+			String date = Integer.toString(year);
+			
+			date += "-";
+			if(month < 10) date += "0";
+			date += Integer.toString(month);
+			date += "-";
+			if(day < 10) date += "0";
+			date += Integer.toString(day);
+			
+			out.println("requestRegistration/" + concertNameField.getText() + "/" + date + "/" + totalSeatNum[index]);
+			
+			moveToRRM();
+		}
 	}
 
 	@FXML public void moveToRRM() {
@@ -104,7 +109,6 @@ public class RRM_RequestController implements Initializable {
 			Stage primaryStage = (Stage)btnRRM.getScene().getWindow();
 			scene.getStylesheets().add(getClass().getResource("/mainmenu/mainmenu.css").toExternalForm());
 			primaryStage.setScene(scene);
-			 
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -132,9 +136,7 @@ public class RRM_RequestController implements Initializable {
 		
 		concertDate.setValue(LocalDate.now());
 		Callback<DatePicker, DateCell> dayCellFactory = dp -> new DateCell()
-        {
-            
-                 
+        {   
             @Override
             public void updateItem(LocalDate item, boolean empty)
             {

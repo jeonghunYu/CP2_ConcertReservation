@@ -16,7 +16,9 @@ import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 
 public class RequestRegisterCancelController implements Initializable {
 
@@ -33,13 +35,20 @@ public class RequestRegisterCancelController implements Initializable {
 	int addRequestCount = 0;
 	
 	@FXML public void acceptRequestAction() {
+		
 		int index = concertRequestList.getFocusModel().getFocusedIndex();
-		if(index < addRequestCount) {
+		if(index < 0) {
+			new Alert(Alert.AlertType.WARNING, "승인하실 콘서트를 선택해주세요.", ButtonType.CLOSE).show();
+		}
+		else if(index < addRequestCount) {
 			out.println("addConcert/" + index);
 			addRequestCount--;
+			requestList.remove(concertRequestList.getFocusModel().getFocusedIndex());
 		}
-		else out.println("cancelConcert/" + (index - addRequestCount));
-		requestList.remove(concertRequestList.getFocusModel().getFocusedIndex());
+		else {
+			out.println("cancelConcert/" + (index - addRequestCount));
+			requestList.remove(concertRequestList.getFocusModel().getFocusedIndex());
+		}
 	}
 
 	@FXML public void moveToHallManager() {

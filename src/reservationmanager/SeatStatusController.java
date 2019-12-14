@@ -13,8 +13,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
@@ -110,6 +113,8 @@ public class SeatStatusController implements Initializable {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+		} else {
+			new Alert(Alert.AlertType.WARNING, "예매하실 좌석을 선택해주세요.", ButtonType.CLOSE).show();
 		}
 		refresh();
 	}
