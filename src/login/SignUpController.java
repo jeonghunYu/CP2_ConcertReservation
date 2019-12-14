@@ -11,9 +11,12 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.PasswordField;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
 public class SignUpController {
@@ -35,39 +38,39 @@ public class SignUpController {
 	int checkSignUp = -1;
 	@FXML Button btnMoveToLogin;
 	
-//	TODO ��������� logout �۵��ϵ��� �ϴ� ��� ���庸��.
+//	TODO 占쏙옙占쏙옙占쏙옙占쏙옙占� logout 占쌜듸옙占싹듸옙占쏙옙 占싹댐옙 占쏙옙占� 占쏙옙占썲보占쏙옙.
 	@FXML public void signUp() {
 		try {
 			socket = LoginController.getSocket();
 			out = LoginController.getOut();
 			in = LoginController.getIn();
-
+			
 			if(authority.getSelectedToggle() == null) {
-//				TODO ���� â
+				new Alert(Alert.AlertType.WARNING, "회원님이 만드실 아이디의 권한을 선택해주세요.", ButtonType.CLOSE).show();
 			} else if(authority.getSelectedToggle().getUserData().toString().equals("audience")) {
 				out.println("addAudience/" + nameField.getText() + "/" + idField.getText() + "/" + passwordField.getText() + "/" + phoneNumField.getText());
 				if(in.readLine().equals("-1")) {
-//					TODO ȸ������ ���� �޽���
+					new Alert(Alert.AlertType.WARNING, "중복된 회원정보 입니다. 다시 한번 확인 부탁드립니다.", ButtonType.CLOSE).show();
 				} else {
 					checkSignUp = 1;
-//					TODO ȸ������ ���� �޽���
+					new Alert(Alert.AlertType.INFORMATION, "회원 가입을 축하드립니다!", ButtonType.CLOSE).show();
 				}
 			} else if(authority.getSelectedToggle().getUserData().toString().equals("eventRegistrant")) {
 				out.println("addEventRegistrant/" + nameField.getText() + "/" + idField.getText() + "/" + passwordField.getText() + "/" + phoneNumField.getText());
 				if(in.readLine().equals("-1")) {
-//					TODO ȸ������ ���� �޽��� Platform.run���ñ�
+					new Alert(Alert.AlertType.WARNING, "중복된 회원정보 입니다. 다시 한번 확인 부탁드립니다.", ButtonType.CLOSE).show();
 				} else {
 					checkSignUp = 1;
 					System.out.println("success");
-//					TODO ȸ������ ���� �޽���
+					new Alert(Alert.AlertType.INFORMATION, "행사등록자 가입을 축하드립니다!", ButtonType.CLOSE).show();
 				}
 			} else {
 				out.println("addManager/" + nameField.getText() + "/" + idField.getText() + "/" + passwordField.getText() + "/" + phoneNumField.getText());
 				if(in.readLine().equals("-1")) {
-//					TODO ȸ������ ���� �޽��� Platform.run���ñ�
+					new Alert(Alert.AlertType.WARNING, "중복된 회원정보 입니다. 다시 한번 확인 부탁드립니다.", ButtonType.CLOSE).show();
 				} else {
 					checkSignUp = 1;
-//					TODO ȸ������ ���� �޽���
+					new Alert(Alert.AlertType.INFORMATION, "관리자 가입을 축하드립니다!", ButtonType.CLOSE).show();
 				}
 			}
 			
@@ -76,7 +79,7 @@ public class SignUpController {
 					Parent main = FXMLLoader.load(getClass().getResource("Login.fxml"));
 					Scene scene = new Scene(main);
 					Stage primaryStage = (Stage)btnSignUp.getScene().getWindow();
-					//scene.getStylesheets().add(getClass().getResource("/mainmenu/mainmenu.css").toExternalForm());
+					scene.getStylesheets().add(getClass().getResource("/mainmenu/mainmenu.css").toExternalForm());
 					primaryStage.setScene(scene);
 				}
 				catch (Exception e) {
@@ -94,7 +97,7 @@ public class SignUpController {
 			Parent login = FXMLLoader.load(getClass().getResource("Login.fxml"));
 			Scene scene = new Scene(login);
 			Stage primaryStage = (Stage)btnMoveToLogin.getScene().getWindow();
-			//scene.getStylesheets().add(getClass().getResource("/mainmenu/mainmenu.css").toExternalForm());
+			scene.getStylesheets().add(getClass().getResource("/mainmenu/mainmenu.css").toExternalForm());
 			primaryStage.setScene(scene);
 		}
 		catch (Exception e) {
