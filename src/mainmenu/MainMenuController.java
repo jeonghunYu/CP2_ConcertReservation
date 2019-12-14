@@ -51,6 +51,18 @@ public class MainMenuController implements Initializable {
 		nameLabel.setText(LoginController.getName());
 		authorityLabel.setText(LoginController.getType());
 		phoneNumLabel.setText(LoginController.getContact());
+		if(LoginController.getType().equals("Audience")) {
+			btnEditing.setDisable(true);
+			btnMoveToAddConcert.setDisable(true);
+		}
+		else if(LoginController.getType().equals("EventRegistrant")) {
+			btnReserving.setDisable(true);
+			btnEditing.setDisable(true);
+		}
+		else if(LoginController.getType().equals("ServerManager")) {
+			btnReserving.setDisable(true);
+			btnMoveToAddConcert.setDisable(true);
+		}
 	}
 	
 	@FXML public void reserveAction() {

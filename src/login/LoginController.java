@@ -35,7 +35,7 @@ public class LoginController implements Initializable {
 	@FXML Button btnLogin;
 	@FXML Button btnSignUp;
 	
-	static Socket 			socket; // TODO ������ �� �� �����ؼ� ��� ���ڷ� �Ѱ��ָ� �������, Ŭ�������� ���ο� ������ ���� ������� �����ϱ�
+	static Socket 			socket; // TODO 占쏙옙占쏙옙占쏙옙 占쏙옙 占쏙옙 占쏙옙占쏙옙占쌔쇽옙 占쏙옙占� 占쏙옙占쌘뤄옙 占싼곤옙占쌍몌옙 占쏙옙占쏙옙占쏙옙占�, 클占쏙옙占쏙옙占쏙옙占쏙옙 占쏙옙占싸울옙 占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙底� 占쏙옙占쏙옙占쏙옙占� 占쏙옙占쏙옙占싹깍옙
 	static PrintWriter 	out = null;
 	static BufferedReader 	in = null;
 	
@@ -47,7 +47,7 @@ public class LoginController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		try {
-			socket = new Socket("localhost", 50000);
+			socket = new Socket("cs-cnu.tk", 50000);
 			out = new PrintWriter(socket.getOutputStream(), true);
 			in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 		} catch (UnknownHostException e) {
@@ -65,13 +65,13 @@ public class LoginController implements Initializable {
 			out = LoginController.getOut();
 			in = LoginController.getIn();
 			
-//			TODO �α��� ���� (null �� �Է� �ȵǰ�)
+//			TODO 占싸깍옙占쏙옙 占쏙옙占쏙옙 (null 占쏙옙 占쌉뤄옙 占싫되곤옙)
 			out.println("login/" + idfield.getText() + "/" + pwfield.getText());
 			
 			inputLine = in.readLine();
 			if(inputLine.equals("-1")) {
 				System.out.println(1);
-				new Alert(Alert.AlertType.WARNING, "Ȯ���Ͻ� �ܼ�Ʈ�� �����ϼ���.", ButtonType.CLOSE).show();
+				new Alert(Alert.AlertType.WARNING, "확占쏙옙占싹쏙옙 占쌤쇽옙트占쏙옙 占쏙옙占쏙옙占싹쇽옙占쏙옙.", ButtonType.CLOSE).show();
 			} else {
 				command = inputLine.split("/");
 				name = command[0];
