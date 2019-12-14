@@ -45,6 +45,10 @@ public class SignUpController {
 			out = LoginController.getOut();
 			in = LoginController.getIn();
 			
+//			if(nameField.getText().equals("") || idField.getText().equals("") || passwordField.getText().equals("") || phoneNumField.getText().equals("")) {
+//				new Alert(Alert.AlertType.WARNING, "빈칸이 있는지 확인한 후 다시 가입해주세요.", ButtonType.CLOSE);
+//			} 왜 안되냐..
+			
 			if(authority.getSelectedToggle() == null) {
 				new Alert(Alert.AlertType.WARNING, "회원님이 만드실 아이디의 권한을 선택해주세요.", ButtonType.CLOSE).show();
 			} else if(authority.getSelectedToggle().getUserData().toString().equals("audience")) {

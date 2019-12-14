@@ -69,6 +69,7 @@ public class MainMenuController implements Initializable {
 		try {
 			Parent reserve = FXMLLoader.load(getClass().getResource("/reservationmanager/ReservationAssistant.fxml"));
 			Scene scene = new Scene(reserve);
+			scene.getStylesheets().add(getClass().getResource("/mainmenu/mainmenu.css").toExternalForm());
 			Stage primaryStage = (Stage)btnEditing.getScene().getWindow();
 			primaryStage.setScene(scene);
 		}
@@ -81,6 +82,7 @@ public class MainMenuController implements Initializable {
 		try {
 			Parent reserve = FXMLLoader.load(getClass().getResource("/requestmanager/RegistrationRequestManager.fxml"));
 			Scene scene = new Scene(reserve);
+			scene.getStylesheets().add(getClass().getResource("/mainmenu/mainmenu.css").toExternalForm());
 			Stage primaryStage = (Stage)btnMoveToAddConcert.getScene().getWindow();
 			primaryStage.setScene(scene);
 		}
@@ -93,6 +95,7 @@ public class MainMenuController implements Initializable {
 		try {
 			Parent edit = FXMLLoader.load(getClass().getResource("/hallmanager/ConcertHallManager.fxml"));
 		    Scene scene = new Scene(edit);
+		    scene.getStylesheets().add(getClass().getResource("/mainmenu/mainmenu.css").toExternalForm());
 		    Stage primaryStage = (Stage)btnEditing.getScene().getWindow();
 		    primaryStage.setScene(scene);
 		}
@@ -109,6 +112,7 @@ public class MainMenuController implements Initializable {
 			out.println("logout");
 			Parent login = FXMLLoader.load(getClass().getResource("/login/Login.fxml"));
 		    Scene scene = new Scene(login);
+		    scene.getStylesheets().add(getClass().getResource("/mainmenu/mainmenu.css").toExternalForm());
 		    Stage primaryStage = (Stage)btnLogOut.getScene().getWindow();
 		    primaryStage.setScene(scene);
 		}
