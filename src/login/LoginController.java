@@ -82,7 +82,6 @@ public class LoginController implements Initializable {
 				Parent main = FXMLLoader.load(getClass().getResource("/mainmenu/MainMenu.fxml"));
 				Scene scene = new Scene(main);
 				Stage primaryStage = (Stage)btnLogin.getScene().getWindow();
-				scene.getStylesheets().add(getClass().getResource("/mainmenu/mainmenu.css").toExternalForm());
 				primaryStage.setScene(scene);
 			}
 		}
@@ -96,7 +95,6 @@ public class LoginController implements Initializable {
 			Parent signUp = FXMLLoader.load(getClass().getResource("SignUp.fxml"));
 			Scene scene = new Scene(signUp);
 			Stage primaryStage = (Stage)btnSignUp.getScene().getWindow();
-			//scene.getStylesheets().add(getClass().getResource("/mainmenu/mainmenu.css").toExternalForm());
 			primaryStage.setScene(scene);
 
 		}

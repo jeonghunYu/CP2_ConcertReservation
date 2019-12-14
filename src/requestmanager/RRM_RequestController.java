@@ -48,11 +48,14 @@ public class RRM_RequestController implements Initializable {
 	private Image[] imageRes = {
 			new Image(getClass().getResource("images/concertHall1.jpg").toString()),
 			new Image(getClass().getResource("images/concertHall2.jpg").toString()),
-			new Image(getClass().getResource("images/concertHall3.jpg").toString()),
 	};
-	private String[] totalSeatNum = {"168", "138", "128"};
+	private static String[] totalSeatNum = {"32", "4"};
 	
 	private int index;
+	
+	public static String[] getTotalSeatNum() {
+		return totalSeatNum;
+	}
 	
 	@FXML public void previousAction() {
 		if (index == 0) {
@@ -99,7 +102,6 @@ public class RRM_RequestController implements Initializable {
 			Parent main = FXMLLoader.load(getClass().getResource("/requestmanager/RegistrationRequestManager.fxml"));
 			Scene scene = new Scene(main);
 			Stage primaryStage = (Stage)btnRRM.getScene().getWindow();
-			scene.getStylesheets().add(getClass().getResource("/requestmanager/requestmanager.css").toExternalForm());
 			primaryStage.setScene(scene);
 			 
 		}
@@ -114,6 +116,7 @@ public class RRM_RequestController implements Initializable {
 		in = login.LoginController.getIn();
 //		TODO
 		
+		totalSeat.setText(totalSeatNum[index]);
 		strConcertList = RegistrationRequestManagerController.strConcertList;
 		ArrayList<LocalDate> concertDateList = new ArrayList<>();
 		for(int i = 0; i < strConcertList.length; i++) {

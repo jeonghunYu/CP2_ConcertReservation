@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
@@ -11,21 +12,23 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reservationmanager.ReservationAssistantController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reservationmanager.ReservationAssistantController">
    <left>
       <VBox prefHeight="600.0" prefWidth="400.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox prefHeight="100.0" prefWidth="200.0">
+            <HBox prefHeight="13.0" prefWidth="360.0">
                <children>
                   <TextField fx:id="searchField" prefHeight="22.0" prefWidth="299.0" promptText="콘서트명" />
                   <Button mnemonicParsing="false" onAction="#searchAction" prefHeight="22.0" prefWidth="62.0" text="검색" />
                </children>
             </HBox>
-            <ListView fx:id="concertListView" prefHeight="565.0" prefWidth="166.0">
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </ListView>
+            <ListView fx:id="concertListView" prefHeight="107.0" prefWidth="360.0" />
+            <Label alignment="BOTTOM_LEFT" prefHeight="58.0" prefWidth="152.0" text="예매한 콘서트">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <ListView fx:id="reservedConcertListView" prefHeight="107.0" prefWidth="360.0" />
          </children>
          <BorderPane.margin>
             <Insets />
@@ -48,9 +51,10 @@
    <right>
       <AnchorPane prefHeight="437.0" prefWidth="358.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="btnReservation" layoutX="116.0" layoutY="117.0" mnemonicParsing="false" onAction="#moveToSeatStatus" prefHeight="50.0" prefWidth="100.0" text="예매하기" />
-            <Button layoutX="116.0" layoutY="219.0" mnemonicParsing="false" onAction="#reservationCancelAction" prefHeight="50.0" prefWidth="100.0" text="예매 취소하기" />
+            <Button fx:id="btnReservation" layoutX="61.0" layoutY="273.0" mnemonicParsing="false" onAction="#moveToSeatStatus" prefHeight="50.0" prefWidth="100.0" text="예매하기" />
+            <Button layoutX="209.0" layoutY="273.0" mnemonicParsing="false" onAction="#reservationCancelAction" prefHeight="50.0" prefWidth="100.0" text="예매 취소하기" />
             <Button fx:id="btnMain" layoutX="274.0" layoutY="383.0" mnemonicParsing="false" onAction="#moveToMain" prefHeight="40.0" prefWidth="70.0" text="뒤로가기" />
+            <TextArea fx:id="concertInfoTextArea" layoutX="13.0" layoutY="37.0" prefHeight="209.0" prefWidth="332.0" />
          </children>
       </AnchorPane>
    </right>

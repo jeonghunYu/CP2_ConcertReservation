@@ -50,10 +50,10 @@
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
             <Button fx:id="btnRequest" layoutX="50.0" layoutY="39.0" mnemonicParsing="false" onAction="#moveToRequest" prefHeight="50.0" prefWidth="100.0" text="등록 요청" />
-            <Button fx:id="btnRequestCancel" layoutX="50.0" layoutY="130.0" mnemonicParsing="false" onAction="#requestCancel" prefHeight="50.0" prefWidth="100.0" text="취소 요청" />
-            <Button fx:id="btnCharge" layoutX="50.0" layoutY="219.0" mnemonicParsing="false" onAction="#moveToCharge" prefHeight="50.0" prefWidth="100.0" text="확정 &amp; 결제" />
+            <Button fx:id="btnRequestCancel" layoutX="50.0" layoutY="176.0" mnemonicParsing="false" onAction="#requestCancel" prefHeight="50.0" prefWidth="100.0" text="취소 요청" />
             <Button fx:id="btnSeatStatus" layoutX="50.0" layoutY="307.0" mnemonicParsing="false" onAction="#moveToSeatStatus" prefHeight="50.0" prefWidth="100.0" text="자리 현황" />
             <Button fx:id="btnMain" layoutX="116.0" layoutY="383.0" mnemonicParsing="false" onAction="#moveToMain" prefHeight="40.0" prefWidth="70.0" text="뒤로가기" />
+            <Button layoutX="15.0" layoutY="383.0" mnemonicParsing="false" onAction="#refreshStatus" prefHeight="40.0" prefWidth="70.0" text="새로고침" />
          </children>
       </AnchorPane>
    </right>

@@ -3,17 +3,17 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hallmanager.ManagerController">
+<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hallmanager.ManagerController">
    <children>
       <TextField fx:id="searchField" layoutX="56.0" layoutY="94.0" prefHeight="38.0" prefWidth="234.0" />
       <ListView fx:id="concertHallList" layoutX="56.0" layoutY="143.0" prefHeight="323.0" prefWidth="286.0" />
-      <Button fx:id="btnShowHallSeats" layoutX="383.0" layoutY="172.0" mnemonicParsing="false" onAction="#showHallSeats" prefHeight="101.0" prefWidth="194.0" text="좌석 현황 보기" />
-      <Button fx:id="cancelConcertAction" layoutX="382.0" layoutY="316.0" mnemonicParsing="false" onAction="#cancelConcert" prefHeight="107.0" prefWidth="196.0" text="콘서트 취소" />
-      <Button fx:id="btnRequestList" layoutX="599.0" layoutY="189.0" mnemonicParsing="false" onAction="#moveToRequsetList" prefHeight="218.0" prefWidth="186.0" text="등록 / 취소 요청 열람" />
+      <Button fx:id="btnShowHallSeats" layoutX="373.0" layoutY="306.0" mnemonicParsing="false" onAction="#showHallSeats" prefHeight="101.0" prefWidth="194.0" text="좌석 현황 보기" />
+      <Button fx:id="btnRequestList" layoutX="599.0" layoutY="306.0" mnemonicParsing="false" onAction="#moveToRequsetList" prefHeight="101.0" prefWidth="186.0" text="등록 / 취소 요청 열람" />
       <Button layoutX="290.0" layoutY="95.0" mnemonicParsing="false" onAction="#searchAction" prefHeight="37.0" prefWidth="52.0" text="검색" />
       <Label layoutX="56.0" prefHeight="39.0" prefWidth="214.0" text="환영합니다! 관리자님^_^">
          <font>
@@ -26,5 +26,6 @@
             <Font size="22.0" />
          </font>
       </Label>
+      <TextArea fx:id="concertInfoTextArea" layoutX="375.0" layoutY="95.0" prefHeight="200.0" prefWidth="411.0" />
    </children>
 </AnchorPane>

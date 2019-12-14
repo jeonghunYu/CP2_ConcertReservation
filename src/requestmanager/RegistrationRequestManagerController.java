@@ -45,6 +45,8 @@ public class RegistrationRequestManagerController implements Initializable {
 	private static ObservableList<String> concertList;
 	private static FilteredList<String> filteredList;
 	
+	private static int selectedConcertIndex;
+	
 	@FXML TextArea selectedConcertInfo;
 	
 	@Override
@@ -52,6 +54,10 @@ public class RegistrationRequestManagerController implements Initializable {
 		out = login.LoginController.getOut();
 		in = login.LoginController.getIn();
 		
+		refresh();
+	}
+	
+	public void refresh() {
 		out.println("getRegisteredConcertList");
 		try {
 			String concert = in.readLine();
@@ -81,8 +87,8 @@ public class RegistrationRequestManagerController implements Initializable {
 
 		});
 	}
-	
 	@FXML public void searchAction() {
+		refresh();
 		filteredList.setPredicate(new Predicate<String>() {
 			public boolean test(String t) {
 				if(t.contains(searchField.getText())) {
@@ -111,12 +117,24 @@ public class RegistrationRequestManagerController implements Initializable {
 		out.println("cancelRequest/" + concertListView.getSelectionModel().getSelectedIndex());
 	}
 	
-	@FXML public void moveToCharge() {
-		
-	}
-	
 	@FXML public void moveToSeatStatus() {
-		
+		try {
+			selectedConcertIndex = concertListView.getSelectionModel().getSelectedIndex();
+			String[] selectedConcert = strConcertList[selectedConcertIndex].split("/");
+			Parent status = null;
+			for(int i = 0; i < RRM_RequestController.getTotalSeatNum().length; i++) {
+				if(Integer.parseInt(RRM_RequestController.getTotalSeatNum()[i]) == Integer.parseInt(selectedConcert[1])) {
+					status = FXMLLoader.load(getClass().getResource("/requestmanager/SeatStatus" + i + ".fxml"));
+					break;
+				}
+			}
+			Scene scene = new Scene(status);
+			Stage primaryStage = (Stage)btnSeatStatus.getScene().getWindow();
+			primaryStage.setScene(scene);
+			requestmanager.SeatStatusController.setControllerType(0);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@FXML public void moveToMain() {
@@ -124,13 +142,20 @@ public class RegistrationRequestManagerController implements Initializable {
 			Parent main = FXMLLoader.load(getClass().getResource("/mainmenu/MainMenu.fxml"));
 			Scene scene = new Scene(main);
 			Stage primaryStage = (Stage)btnMain.getScene().getWindow();
-			scene.getStylesheets().add(getClass().getResource("/mainmenu/mainmenu.css").toExternalForm());
 			primaryStage.setScene(scene);
 			 
 		}
 		catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public static int getSelectedConcertIndex() {
+		return selectedConcertIndex;
+	}
+
+	@FXML public void refreshStatus() {
+		refresh();
 	}
 
 }

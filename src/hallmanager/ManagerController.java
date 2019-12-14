@@ -17,12 +17,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import requestmanager.RRM_RequestController;
 import javafx.scene.control.ListView;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.TextArea;
 
 public class ManagerController implements Initializable {
 
@@ -41,7 +43,10 @@ public class ManagerController implements Initializable {
 	
 	private ObservableList<String> concertList;
 	
-	private FilteredList<String> filteredList; 
+	private static int selectedConcertIndex;
+	
+	private FilteredList<String> filteredList;
+	@FXML TextArea concertInfoTextArea; 
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -64,11 +69,11 @@ public class ManagerController implements Initializable {
 		if(!strConcertList[0].equals("")) {
 			for(int i = 0; i < strConcertList.length; i++) {
 				String[] concert = strConcertList[i].split("/");
-				Platform.runLater(() -> concertList.add(concert[0] + " " + concert[2]));
+				Platform.runLater(() -> concertList.add(concert[2] + " " + concert[0] + " " + concert[4] + "/" + concert[1]));
 			}
 		}
 	}
-
+	
 	//	TODO �˻� ����ó��
 	@FXML public void searchAction() {
 		filteredList.setPredicate(new Predicate<String>() {
@@ -88,7 +93,6 @@ public class ManagerController implements Initializable {
 			Parent main = FXMLLoader.load(getClass().getResource("/mainmenu/MainMenu.fxml"));
 			Scene scene = new Scene(main);
 			Stage primaryStage = (Stage)btnMain.getScene().getWindow();
-			scene.getStylesheets().add(getClass().getResource("/mainmenu/mainmenu.css").toExternalForm());
 			primaryStage.setScene(scene);
 			 
 //			StackPane root = (StackPane)btnReserving.getScene().getRoot();
@@ -104,7 +108,6 @@ public class ManagerController implements Initializable {
 			Parent request = FXMLLoader.load(getClass().getResource("RequestRegisterCancel.fxml"));
 			Scene scene = new Scene(request);
 			Stage primaryStage = (Stage)btnRequestList.getScene().getWindow();
-			scene.getStylesheets().add(getClass().getResource("hallmanager.css").toExternalForm());
 			primaryStage.setScene(scene);
 		}
 		catch (Exception e) {
@@ -114,52 +117,26 @@ public class ManagerController implements Initializable {
 
 	@FXML public void showHallSeats() {
 		try {
-			int selectedIndex = concertHallList.getSelectionModel().getSelectedIndex();
-			if(selectedIndex < 0) {
-				new Alert(Alert.AlertType.WARNING, "Ȯ���Ͻ� �ܼ�Ʈ�� �����ϼ���.", ButtonType.CLOSE).show();
-				return;
+			selectedConcertIndex = concertHallList.getSelectionModel().getSelectedIndex();
+			String[] selectedConcert = strConcertList[selectedConcertIndex].split("/");
+			Parent status = null;
+			for(int i = 0; i < RRM_RequestController.getTotalSeatNum().length; i++) {
+				if(Integer.parseInt(RRM_RequestController.getTotalSeatNum()[i]) == Integer.parseInt(selectedConcert[1])) {
+					status = FXMLLoader.load(getClass().getResource("/requestmanager/SeatStatus" + i + ".fxml"));
+					break;
+				}
 			}
-//			TODO if,else if���ǹ����� selectedIndex�� �� �ٲ������ �ٸ� �ɷ� �����ؾ���
-			if(selectedIndex == 1) {
-				Parent hall1 = FXMLLoader.load(getClass().getResource("reservationAssistant/RA_SeatStatus1.fxml"));
-				Scene scene = new Scene(hall1);
-				Stage primaryStage = (Stage)btnShowHallSeats.getScene().getWindow();
-//				TODO css���� : scene.getStylesheets().add(getClass().getResource("hallmanager.css").toExternalForm());
-				primaryStage.setScene(scene);
-			}
-			else if(selectedIndex == 2) {
-				Parent hall2 = FXMLLoader.load(getClass().getResource("reservationAssistant/RA_SeatStatus2.fxml"));
-				Scene scene = new Scene(hall2);
-				Stage primaryStage = (Stage)btnShowHallSeats.getScene().getWindow();
-//				TODO css���� : scene.getStylesheets().add(getClass().getResource("hallmanager.css").toExternalForm());
-				primaryStage.setScene(scene);
-			}
-			else if(selectedIndex == 3) {
-				Parent hall3 = FXMLLoader.load(getClass().getResource("reservationAssistant/RA_SeatStatus3.fxml"));
-				Scene scene = new Scene(hall3);
-				Stage primaryStage = (Stage)btnShowHallSeats.getScene().getWindow();
-//				TODO css���� : scene.getStylesheets().add(getClass().getResource("hallmanager.css").toExternalForm());
-				primaryStage.setScene(scene);
-			}
-		}
-		catch (Exception e) {
+			Scene scene = new Scene(status);
+			Stage primaryStage = (Stage)btnShowHallSeats.getScene().getWindow();
+			primaryStage.setScene(scene);
+			requestmanager.SeatStatusController.setControllerType(1);
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
 	}
-
-	@FXML public void cancelConcert() {
-//		TODO
-		int selectedIndex = concertHallList.getSelectionModel().getSelectedIndex();
-		if(selectedIndex < 0) {
-			new Alert(Alert.AlertType.WARNING, "������ �ܼ�Ʈ�� �����ϼ���.", ButtonType.CLOSE).show();
-			return;
-		}
-		Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "�����Ͻðڽ��ϱ�?", ButtonType.OK, ButtonType.CANCEL);
-		Optional<ButtonType> result = alert.showAndWait();
-		if(result.get() == ButtonType.OK) {
-			concertList.remove(selectedIndex);
-		}
+	public static int getSelectedConcertIndex() {
+		return selectedConcertIndex;
 	}
-
 	
 }
