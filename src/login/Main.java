@@ -18,6 +18,7 @@ public class Main extends Application {
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
 			Scene scene = new Scene(root);
+			scene.getStylesheets().add(getClass().getResource("/mainmenu/mainmenu.css").toExternalForm());
 			primaryStage.setTitle("�ܼ�Ʈ ���� ���α׷�");
 			primaryStage.setScene(scene);
 			primaryStage.setResizable(false);

@@ -102,6 +102,7 @@ public class RRM_RequestController implements Initializable {
 			Parent main = FXMLLoader.load(getClass().getResource("/requestmanager/RegistrationRequestManager.fxml"));
 			Scene scene = new Scene(main);
 			Stage primaryStage = (Stage)btnRRM.getScene().getWindow();
+			scene.getStylesheets().add(getClass().getResource("/mainmenu/mainmenu.css").toExternalForm());
 			primaryStage.setScene(scene);
 			 
 		}

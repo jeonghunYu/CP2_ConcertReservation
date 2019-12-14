@@ -83,6 +83,7 @@ public class SignUpController {
                   Parent main = FXMLLoader.load(getClass().getResource("Login.fxml"));
                   Scene scene = new Scene(main);
                   Stage primaryStage = (Stage)btnSignUp.getScene().getWindow();
+                  scene.getStylesheets().add(getClass().getResource("/mainmenu/mainmenu.css").toExternalForm());
                   primaryStage.setScene(scene);
                }
                catch (Exception e) {
@@ -100,6 +101,7 @@ public class SignUpController {
       try {
          Parent login = FXMLLoader.load(getClass().getResource("Login.fxml"));
          Scene scene = new Scene(login);
+         scene.getStylesheets().add(getClass().getResource("/mainmenu/mainmenu.css").toExternalForm());
          Stage primaryStage = (Stage)btnMoveToLogin.getScene().getWindow();
          primaryStage.setScene(scene);
       }

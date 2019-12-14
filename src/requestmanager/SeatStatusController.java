@@ -93,6 +93,7 @@ public class SeatStatusController implements Initializable {
 			}
 			Scene scene = new Scene(reserve);
 			Stage primaryStage = (Stage)btnRRM.getScene().getWindow();
+			scene.getStylesheets().add(getClass().getResource("/mainmenu/mainmenu.css").toExternalForm());
 			primaryStage.setScene(scene);
 	      }
 	      catch (Exception e) {

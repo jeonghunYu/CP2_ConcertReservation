@@ -105,6 +105,7 @@ public class RegistrationRequestManagerController implements Initializable {
 			Parent request = FXMLLoader.load(getClass().getResource("/requestmanager/RRM_Request.fxml"));
 			Scene scene = new Scene(request);
 			Stage primaryStage = (Stage)btnRequest.getScene().getWindow();
+			scene.getStylesheets().add(getClass().getResource("/mainmenu/mainmenu.css").toExternalForm());
 			primaryStage.setScene(scene);
 		}
 		catch (Exception e) {
@@ -130,6 +131,7 @@ public class RegistrationRequestManagerController implements Initializable {
 			}
 			Scene scene = new Scene(status);
 			Stage primaryStage = (Stage)btnSeatStatus.getScene().getWindow();
+			scene.getStylesheets().add(getClass().getResource("/mainmenu/mainmenu.css").toExternalForm());
 			primaryStage.setScene(scene);
 			requestmanager.SeatStatusController.setControllerType(0);
 		} catch (IOException e) {
@@ -142,6 +144,7 @@ public class RegistrationRequestManagerController implements Initializable {
 			Parent main = FXMLLoader.load(getClass().getResource("/mainmenu/MainMenu.fxml"));
 			Scene scene = new Scene(main);
 			Stage primaryStage = (Stage)btnMain.getScene().getWindow();
+			scene.getStylesheets().add(getClass().getResource("/mainmenu/mainmenu.css").toExternalForm());
 			primaryStage.setScene(scene);
 			 
 		}

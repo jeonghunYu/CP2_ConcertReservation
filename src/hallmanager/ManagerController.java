@@ -78,14 +78,15 @@ public class ManagerController implements Initializable {
 	@FXML public void searchAction() {
 		filteredList.setPredicate(new Predicate<String>() {
 
-			@Override
-			public boolean test(String t) {
-				if(t.contains(searchField.getText())) {
-					return true;
-				}
-				return false;
-			}
-		});
+	         @Override
+	         public boolean test(String t) {
+	            if(t.contains(searchField.getText())) {
+	               return true;
+	            }
+	            return false;
+	         }
+	      });
+	      concertHallList.setItems(filteredList);
 	}
 
 	@FXML public void moveToMain() {
@@ -93,6 +94,7 @@ public class ManagerController implements Initializable {
 			Parent main = FXMLLoader.load(getClass().getResource("/mainmenu/MainMenu.fxml"));
 			Scene scene = new Scene(main);
 			Stage primaryStage = (Stage)btnMain.getScene().getWindow();
+			scene.getStylesheets().add(getClass().getResource("/mainmenu/mainmenu.css").toExternalForm());
 			primaryStage.setScene(scene);
 			 
 //			StackPane root = (StackPane)btnReserving.getScene().getRoot();
@@ -108,6 +110,7 @@ public class ManagerController implements Initializable {
 			Parent request = FXMLLoader.load(getClass().getResource("RequestRegisterCancel.fxml"));
 			Scene scene = new Scene(request);
 			Stage primaryStage = (Stage)btnRequestList.getScene().getWindow();
+			scene.getStylesheets().add(getClass().getResource("/mainmenu/mainmenu.css").toExternalForm());
 			primaryStage.setScene(scene);
 		}
 		catch (Exception e) {
@@ -128,6 +131,7 @@ public class ManagerController implements Initializable {
 			}
 			Scene scene = new Scene(status);
 			Stage primaryStage = (Stage)btnShowHallSeats.getScene().getWindow();
+			scene.getStylesheets().add(getClass().getResource("/mainmenu/mainmenu.css").toExternalForm());
 			primaryStage.setScene(scene);
 			requestmanager.SeatStatusController.setControllerType(1);
 		} catch (IOException e) {

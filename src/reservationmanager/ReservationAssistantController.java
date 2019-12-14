@@ -134,6 +134,7 @@ public class ReservationAssistantController implements Initializable {
 			
 			Scene scene = new Scene(seat);
 			Stage primaryStage = (Stage)btnReservation.getScene().getWindow();
+			scene.getStylesheets().add(getClass().getResource("/mainmenu/mainmenu.css").toExternalForm());
 			primaryStage.setScene(scene);
 		}
 		catch (Exception e) {
@@ -150,6 +151,7 @@ public class ReservationAssistantController implements Initializable {
 			Parent main = FXMLLoader.load(getClass().getResource("/mainmenu/MainMenu.fxml"));
 			Scene scene = new Scene(main);
 			Stage primaryStage = (Stage)btnMain.getScene().getWindow();
+			scene.getStylesheets().add(getClass().getResource("/mainmenu/mainmenu.css").toExternalForm());
 			primaryStage.setScene(scene);
 			 
 		}

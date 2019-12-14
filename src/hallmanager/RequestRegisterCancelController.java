@@ -47,6 +47,7 @@ public class RequestRegisterCancelController implements Initializable {
 			Parent main = FXMLLoader.load(getClass().getResource("ConcertHallManager.fxml"));
 			Scene scene = new Scene(main);
 			Stage primaryStage = (Stage)btnHallManager.getScene().getWindow();
+			scene.getStylesheets().add(getClass().getResource("/mainmenu/mainmenu.css").toExternalForm());
 			primaryStage.setScene(scene);
 		}
 		catch (Exception e) {
