@@ -27,7 +27,9 @@ import javafx.util.Callback;
 import login.Main;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.DateCell;
 import javafx.scene.control.DatePicker;
 
@@ -78,24 +80,38 @@ public class RRM_RequestController implements Initializable {
 	}
 	
 	@FXML public void requestAction() throws UnknownHostException, IOException {
-		int year = concertDate.getValue().getYear();
-		int month = concertDate.getValue().getMonthValue();
-		int day = concertDate.getValue().getDayOfMonth();
-		
-		String date = Integer.toString(year);
-		date += "-";
-		if(month < 10) date += "0";
-		date += Integer.toString(month);
-		date += "-";
-		if(day < 10) date += "0";
-		date += Integer.toString(day);
-		
-		out.println("requestRegistration/" + concertNameField.getText() + "/" + date + "/" + totalSeatNum[index]);
-		
-		
-		moveToRRM();
-		
-	}
+	      if(concertNameField.getText().equals("")) {
+	         new Alert(Alert.AlertType.WARNING, "등록하실 행사명을 입력해주세요.", ButtonType.CLOSE).show();
+	      }
+	      else {
+	         int year = concertDate.getValue().getYear();
+	         int month = concertDate.getValue().getMonthValue();
+	         int day = concertDate.getValue().getDayOfMonth();
+	         String date = Integer.toString(year);
+	         
+	         date += "-";
+	         if(month < 10) date += "0";
+	         date += Integer.toString(month);
+	         date += "-";
+	         if(day < 10) date += "0";
+	         date += Integer.toString(day);
+	         
+	         out.println("requestRegistration/" + concertNameField.getText() + "/" + date + "/" + totalSeatNum[index]);
+	         out.flush();
+	         int result = Integer.parseInt(in.readLine());
+	         if(result == -1) {
+	        	 new Alert(Alert.AlertType.WARNING, "이미 요청된 행사입니다.", ButtonType.CLOSE).show();
+	         } else {
+	        	 if(result < 0) {
+	        		 new Alert(Alert.AlertType.WARNING, "잔액이 부족합니다 : " + result, ButtonType.CLOSE).show();
+	        	 } else {
+	        		 new Alert(Alert.AlertType.WARNING, "요청되었습니다. 요청된 행사는 등록되기 전까지 보이지 않습니다.", ButtonType.CLOSE).show();
+	        		 login.LoginController.setBalance(login.LoginController.getBalance() - result);
+	        	 }
+	         }
+	         moveToRRM();
+	      }
+	   }
 
 	@FXML public void moveToRRM() {
 		try {
@@ -116,6 +132,7 @@ public class RRM_RequestController implements Initializable {
 		out = login.LoginController.getOut();
 		in = login.LoginController.getIn();
 //		TODO
+		index = 0;
 		
 		totalSeat.setText(totalSeatNum[index]);
 		strConcertList = RegistrationRequestManagerController.strConcertList;
@@ -128,7 +145,7 @@ public class RRM_RequestController implements Initializable {
 				concertDateList.add(LocalDate.parse(date));
 			}
 		}
-		System.out.println(Arrays.deepToString(strConcertList));
+		System.out.println("strConcertList : " + Arrays.deepToString(strConcertList));
 		
 		concertDate.setValue(LocalDate.now());
 		Callback<DatePicker, DateCell> dayCellFactory = dp -> new DateCell()

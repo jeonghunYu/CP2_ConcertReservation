@@ -13,7 +13,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
@@ -58,6 +60,7 @@ public class SeatStatusController implements Initializable {
 	
 	public void refresh() {
 		out.println("getAllConcertList");
+		out.flush();
 		try {
 			String concert = in.readLine();
 			String[] strConcertList = concert.split("//");
@@ -99,18 +102,21 @@ public class SeatStatusController implements Initializable {
 	}
 	
 	@FXML public void moveToCharge() {
-		int choicedSeat = choiceSeat.getToggles().indexOf(choiceSeat.getSelectedToggle());
-		if(choicedSeat >= 0) {
-			out.println("reserveSeat/" + ReservationAssistantController.getSelectedConcertIndex() +"/" + choicedSeat);
-			try {
-				String result = in.readLine();
-				if(Integer.parseInt(result) == 1) {
-					System.out.println("예약성공");
-				}
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-		refresh();
-	}
+	      int choicedSeat = choiceSeat.getToggles().indexOf(choiceSeat.getSelectedToggle());
+	      if(choicedSeat >= 0) {
+	         out.println("reserveSeat/" + ReservationAssistantController.getSelectedConcertIndex() +"/" + choicedSeat);
+	         out.flush();
+	         try {
+	            String result = in.readLine();
+	            if(Integer.parseInt(result) == 1) {
+	               System.out.println("예약성공");
+	            }
+	         } catch (IOException e) {
+	            e.printStackTrace();
+	         }
+	      } else {
+	         new Alert(Alert.AlertType.WARNING, "예매하실 좌석을 선택해주세요.", ButtonType.CLOSE).show();
+	      }
+	      refresh();
+	   }
 }

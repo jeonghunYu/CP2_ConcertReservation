@@ -53,6 +53,7 @@ public class SignUpController {
                new Alert(Alert.AlertType.WARNING, "회원님이 만드실 아이디의 권한을 선택해주세요.", ButtonType.CLOSE).show();
             } else if(authority.getSelectedToggle().getUserData().toString().equals("audience")) {
                out.println("addAudience/" + nameField.getText() + "/" + idField.getText() + "/" + passwordField.getText() + "/" + phoneNumField.getText());
+               out.flush();
                if(in.readLine().equals("-1")) {
                   new Alert(Alert.AlertType.WARNING, "중복된 회원정보 입니다. 다시 한번 확인 부탁드립니다.", ButtonType.CLOSE).show();
                } else {
@@ -61,6 +62,7 @@ public class SignUpController {
                }
             } else if(authority.getSelectedToggle().getUserData().toString().equals("eventRegistrant")) {
                out.println("addEventRegistrant/" + nameField.getText() + "/" + idField.getText() + "/" + passwordField.getText() + "/" + phoneNumField.getText());
+               out.flush();
                if(in.readLine().equals("-1")) {
                   new Alert(Alert.AlertType.WARNING, "중복된 회원정보 입니다. 다시 한번 확인 부탁드립니다.", ButtonType.CLOSE).show();
                } else {
@@ -70,6 +72,7 @@ public class SignUpController {
                }
             } else {
                out.println("addManager/" + nameField.getText() + "/" + idField.getText() + "/" + passwordField.getText() + "/" + phoneNumField.getText());
+               out.flush();
                if(in.readLine().equals("-1")) {
                   new Alert(Alert.AlertType.WARNING, "중복된 회원정보 입니다. 다시 한번 확인 부탁드립니다.", ButtonType.CLOSE).show();
                } else {

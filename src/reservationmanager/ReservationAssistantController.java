@@ -55,6 +55,7 @@ public class ReservationAssistantController implements Initializable {
 		
 //		서버측 좌석현황 업데이트 끝나면 업데이트 하기.
 		out.println("getAllConcertList");
+		out.flush();
 		try {
 			String concert = in.readLine();
 			strConcertList = concert.split("//");
@@ -70,6 +71,7 @@ public class ReservationAssistantController implements Initializable {
 		}
 		
 		out.println("getReservedConcertList");
+		out.flush();
 		try {
 			String concert = in.readLine();
 			strReservedList = concert.split("//");

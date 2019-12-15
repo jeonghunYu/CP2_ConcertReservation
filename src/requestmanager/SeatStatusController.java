@@ -56,6 +56,7 @@ public class SeatStatusController implements Initializable {
 	
 	public void refresh() {
 		out.println("getAllConcertList");
+		out.flush();
 		try {
 			String concert = in.readLine();
 			String[] strConcertList = concert.split("//");

@@ -16,7 +16,9 @@ import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 
 public class RequestRegisterCancelController implements Initializable {
 
@@ -33,14 +35,23 @@ public class RequestRegisterCancelController implements Initializable {
 	int addRequestCount = 0;
 	
 	@FXML public void acceptRequestAction() {
-		int index = concertRequestList.getFocusModel().getFocusedIndex();
-		if(index < addRequestCount) {
-			out.println("addConcert/" + index);
-			addRequestCount--;
-		}
-		else out.println("cancelConcert/" + (index - addRequestCount));
-		requestList.remove(concertRequestList.getFocusModel().getFocusedIndex());
-	}
+	      
+	      int index = concertRequestList.getFocusModel().getFocusedIndex();
+	      if(index < 0) {
+	         new Alert(Alert.AlertType.WARNING, "승인하실 콘서트를 선택해주세요.", ButtonType.CLOSE).show();
+	      }
+	      else if(index < addRequestCount) {
+	         out.println("addConcert/" + index);
+	         out.flush();
+	         addRequestCount--;
+	         requestList.remove(concertRequestList.getFocusModel().getFocusedIndex());
+	      }
+	      else {
+	         out.println("cancelConcert/" + (index - addRequestCount));
+	         out.flush();
+	         requestList.remove(concertRequestList.getFocusModel().getFocusedIndex());
+	      }
+	   }
 
 	@FXML public void moveToHallManager() {
 		try {
@@ -64,6 +75,7 @@ public class RequestRegisterCancelController implements Initializable {
 		in = login.LoginController.getIn();
 
 		out.println("getWaitingList");
+		out.flush();
 		try {
 			strRequestList = in.readLine().split("//");
 			if(!strRequestList[0].equals("")) {
@@ -78,6 +90,7 @@ public class RequestRegisterCancelController implements Initializable {
 		}
 		
 		out.println("getCancelList");
+		out.flush();
 		try {
 			strRequestList = in.readLine().split("//");
 			if(!strRequestList[0].equals("")) {
@@ -90,6 +103,30 @@ public class RequestRegisterCancelController implements Initializable {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+
+	@FXML public void acceptRejectAction() {
+		int index = concertRequestList.getFocusModel().getFocusedIndex();
+	      if(index < 0) {
+	         new Alert(Alert.AlertType.WARNING, "승인하실 콘서트를 선택해주세요.", ButtonType.CLOSE).show();
+	      }
+	      else if(index < addRequestCount) {
+	         out.println("rejectAddRequest/" + index);
+	         out.flush();
+	         addRequestCount--;
+	         requestList.remove(concertRequestList.getFocusModel().getFocusedIndex());
+	         try {
+				login.LoginController.setBalance(Integer.parseInt(in.readLine()));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	      }
+	      else {
+	         out.println("rejectCancelRequest/" + (index - addRequestCount));
+	         out.flush();
+	         requestList.remove(concertRequestList.getFocusModel().getFocusedIndex());
+	      }
 	}
 
 }

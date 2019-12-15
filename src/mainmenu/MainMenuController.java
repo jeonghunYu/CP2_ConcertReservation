@@ -48,6 +48,8 @@ public class MainMenuController implements Initializable {
    String[]    command;
    
    ObservableList<String> randomConcertList;
+@FXML Label balanceLabel;
+@FXML Button btnCashManagement;
    
    
    @Override
@@ -61,6 +63,8 @@ public class MainMenuController implements Initializable {
       nameLabel.setText(LoginController.getName());
       authorityLabel.setText(LoginController.getType());
       phoneNumLabel.setText(LoginController.getContact());
+      balanceLabel.setText(LoginController.getBalance() + "원");
+      
       if(LoginController.getType().equals("Audience")) {
          btnEditing.setDisable(true);
          btnMoveToAddConcert.setDisable(true);
@@ -77,11 +81,12 @@ public class MainMenuController implements Initializable {
       randomConcertView.setItems(randomConcertList);
       
       out.println("getAllConcertList");
+      out.flush();
       String[] strConcertList = null;
 		try {
 			String concert = in.readLine();
 			strConcertList = concert.split("//");
-			System.out.println(concert);
+			System.out.println("concert : " + concert);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -131,13 +136,12 @@ public class MainMenuController implements Initializable {
          e.printStackTrace();
       }
    }
-
-   @FXML public void showDate() {}
-
+   
    @FXML public void moveToLogin() {
       try {
          out = login.LoginController.getOut();
          out.println("logout");
+         out.flush();
          Parent login = FXMLLoader.load(getClass().getResource("/login/Login.fxml"));
           Scene scene = new Scene(login);
           Stage primaryStage = (Stage)btnLogOut.getScene().getWindow();
@@ -149,4 +153,17 @@ public class MainMenuController implements Initializable {
       }
       
    }
+
+	@FXML public void manageCash() {
+		try {
+	         Parent cash = FXMLLoader.load(getClass().getResource("/mainmenu/CashManagement.fxml"));
+	         Scene scene = new Scene(cash);
+	         Stage primaryStage = (Stage)btnCashManagement.getScene().getWindow();
+	         scene.getStylesheets().add(getClass().getResource("/mainmenu/mainmenu.css").toExternalForm());
+	         primaryStage.setScene(scene);
+	      }
+	      catch (Exception e) {
+	         e.printStackTrace();
+	      }
+	}
 }

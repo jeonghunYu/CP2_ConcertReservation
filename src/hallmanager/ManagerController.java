@@ -58,6 +58,7 @@ public class ManagerController implements Initializable {
 		filteredList = new FilteredList<String>(concertList);
 		
 		out.println("getAllConcertList");
+		out.flush();
 		try {
 			String concert = in.readLine();
 			strConcertList = concert.split("//");
@@ -117,28 +118,34 @@ public class ManagerController implements Initializable {
 			e.printStackTrace();
 		}
 	}
-
+	
 	@FXML public void showHallSeats() {
-		try {
-			selectedConcertIndex = concertHallList.getSelectionModel().getSelectedIndex();
-			String[] selectedConcert = strConcertList[selectedConcertIndex].split("/");
-			Parent status = null;
-			for(int i = 0; i < RRM_RequestController.getTotalSeatNum().length; i++) {
-				if(Integer.parseInt(RRM_RequestController.getTotalSeatNum()[i]) == Integer.parseInt(selectedConcert[1])) {
-					status = FXMLLoader.load(getClass().getResource("/requestmanager/SeatStatus" + i + ".fxml"));
-					break;
-				}
-			}
-			Scene scene = new Scene(status);
-			Stage primaryStage = (Stage)btnShowHallSeats.getScene().getWindow();
-			scene.getStylesheets().add(getClass().getResource("/mainmenu/mainmenu.css").toExternalForm());
-			primaryStage.setScene(scene);
-			requestmanager.SeatStatusController.setControllerType(1);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
-	}
+	      try {
+	         selectedConcertIndex = concertHallList.getSelectionModel().getSelectedIndex();
+	         if(selectedConcertIndex < 0) {
+	            new Alert(Alert.AlertType.WARNING, "좌석 현황을 볼 콘서트를 선택해주세요.", ButtonType.CLOSE).show();
+	         } else {
+	            String[] selectedConcert = strConcertList[selectedConcertIndex].split("/");
+	            Parent status = null;
+	            
+	            
+	            for(int i = 0; i < RRM_RequestController.getTotalSeatNum().length; i++) {
+	               if(Integer.parseInt(RRM_RequestController.getTotalSeatNum()[i]) == Integer.parseInt(selectedConcert[1])) {
+	                  status = FXMLLoader.load(getClass().getResource("/requestmanager/SeatStatus" + i + ".fxml"));
+	                  break;
+	               }
+	            }
+	            Scene scene = new Scene(status);
+	            Stage primaryStage = (Stage)btnShowHallSeats.getScene().getWindow();
+	            scene.getStylesheets().add(getClass().getResource("/mainmenu/mainmenu.css").toExternalForm());
+	            primaryStage.setScene(scene);
+	            requestmanager.SeatStatusController.setControllerType(1);
+	         }
+	      } catch (IOException e) {
+	         e.printStackTrace();
+	      }
+	   }
+	
 	public static int getSelectedConcertIndex() {
 		return selectedConcertIndex;
 	}

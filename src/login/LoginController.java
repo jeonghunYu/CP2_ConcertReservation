@@ -43,6 +43,7 @@ public class LoginController implements Initializable {
 	String[] 	command;
 	
 	static String name, id, contact, type;
+	static int balance;
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -70,6 +71,7 @@ public class LoginController implements Initializable {
 			
 //			TODO �α��� ���� (null �� �Է� �ȵǰ�)
 			out.println("login/" + idfield.getText() + "/" + pwfield.getText());
+			out.flush();
 			
 			inputLine = in.readLine();
 			if(inputLine.equals("-1")) {
@@ -81,6 +83,15 @@ public class LoginController implements Initializable {
 				id = command[1];
 				contact = command[2];
 				type = command[3];
+				balance = Integer.parseInt(command[4]);
+				if(command.length == 6) {
+					String[] msgList = command[5].split("=");
+					String msg = "";
+					for(int i = 0; i < msgList.length; i++) {
+						msg += msgList[i] + "\n";
+					}
+					new Alert(Alert.AlertType.CONFIRMATION, msg, ButtonType.CLOSE).show();
+				}
 				
 				Parent main = FXMLLoader.load(getClass().getResource("/mainmenu/MainMenu.fxml"));
 				Scene scene = new Scene(main);
@@ -119,7 +130,12 @@ public class LoginController implements Initializable {
 	public static String getContact() {
 		return contact;
 	}
-	
+	public static void setBalance(int newBalance) {
+		balance = newBalance;
+	}
+	public static int getBalance() {
+		return balance;
+	}
 	public static String getType() {
 		return type;
 	}
