@@ -63,7 +63,14 @@ public class MainMenuController implements Initializable {
       nameLabel.setText(LoginController.getName());
       authorityLabel.setText(LoginController.getType());
       phoneNumLabel.setText(LoginController.getContact());
-      balanceLabel.setText(LoginController.getBalance() + "원");
+      out.println("getBalance");
+      try {
+    	  int balance = Integer.parseInt(in.readLine());
+          balanceLabel.setText(balance + "");
+	} catch (IOException e1) {
+		// TODO Auto-generated catch block
+		e1.printStackTrace();
+	}
       
       if(LoginController.getType().equals("Audience")) {
          btnEditing.setDisable(true);
