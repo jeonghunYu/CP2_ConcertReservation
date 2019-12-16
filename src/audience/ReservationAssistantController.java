@@ -1,4 +1,4 @@
-package reservationmanager;
+package audience;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -130,9 +130,9 @@ public class ReservationAssistantController implements Initializable {
 			Parent seat = null;
 			if((selectedConcertIndex = concertListView.getSelectionModel().getSelectedIndex()) >= 0) {
 				String[] selectedConcert = strConcertList[selectedConcertIndex].split("/");
-				for(int i = 0; i < requestmanager.RRM_RequestController.getTotalSeatNum().length; i++) {
-					if(requestmanager.RRM_RequestController.getTotalSeatNum()[i].equals(selectedConcert[1])) {
-						seat = FXMLLoader.load(getClass().getResource("/reservationmanager/SeatStatus" + i + ".fxml"));
+				for(int i = 0; i < eventRegistrant.RRM_RequestController.getTotalSeatNum().length; i++) {
+					if(eventRegistrant.RRM_RequestController.getTotalSeatNum()[i].equals(selectedConcert[1])) {
+						seat = FXMLLoader.load(getClass().getResource("/audience/SeatStatus" + i + ".fxml"));
 						break;
 					}
 				}
@@ -154,9 +154,9 @@ public class ReservationAssistantController implements Initializable {
 		if((selectedConcertIndex = reservedConcertListView.getSelectionModel().getSelectedIndex()) >= 0) {
 			out.println("cancelSeat/" + selectedConcertIndex);
 			reservedList.remove(selectedConcertIndex);
-			new Alert(Alert.AlertType.WARNING, "예매가 취소되었습니다.", ButtonType.CLOSE).show();
+			new Alert(Alert.AlertType.CONFIRMATION, "예매가 취소되었습니다.", ButtonType.CLOSE).show();
 		} else {
-			new Alert(Alert.AlertType.WARNING, "예매취소할 콘서트를 선택해주세요.", ButtonType.CLOSE).show();
+			new Alert(Alert.AlertType.WARNING, "예매를 취소할 콘서트를 선택해주세요.", ButtonType.CLOSE).show();
 		}
 	}
 

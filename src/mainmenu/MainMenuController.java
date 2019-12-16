@@ -9,7 +9,6 @@ import java.net.URL;
 import java.net.UnknownHostException;
 import java.util.ResourceBundle;
 
-import application.Main;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -107,7 +106,7 @@ public class MainMenuController implements Initializable {
    
    @FXML public void reserveAction() {
       try {
-         Parent reserve = FXMLLoader.load(getClass().getResource("/reservationmanager/ReservationAssistant.fxml"));
+         Parent reserve = FXMLLoader.load(getClass().getResource("/audience/ReservationAssistant.fxml"));
          Scene scene = new Scene(reserve);
          Stage primaryStage = (Stage)btnEditing.getScene().getWindow();
          scene.getStylesheets().add(getClass().getResource("/mainmenu/mainmenu.css").toExternalForm());
@@ -120,7 +119,7 @@ public class MainMenuController implements Initializable {
 
    @FXML public void addConcertAction() {
       try {
-         Parent reserve = FXMLLoader.load(getClass().getResource("/requestmanager/RegistrationRequestManager.fxml"));
+         Parent reserve = FXMLLoader.load(getClass().getResource("/eventRegistrant/RegistrationRequestManager.fxml"));
          Scene scene = new Scene(reserve);
          Stage primaryStage = (Stage)btnMoveToAddConcert.getScene().getWindow();
          scene.getStylesheets().add(getClass().getResource("/mainmenu/mainmenu.css").toExternalForm());
@@ -133,7 +132,7 @@ public class MainMenuController implements Initializable {
 
    @FXML public void editScheduleAction() {
       try {
-         Parent edit = FXMLLoader.load(getClass().getResource("/hallmanager/ConcertHallManager.fxml"));
+         Parent edit = FXMLLoader.load(getClass().getResource("/manager/ConcertHallManager.fxml"));
           Scene scene = new Scene(edit);
           Stage primaryStage = (Stage)btnEditing.getScene().getWindow();
           scene.getStylesheets().add(getClass().getResource("/mainmenu/mainmenu.css").toExternalForm());

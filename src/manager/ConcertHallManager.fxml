@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hallmanager.ManagerController">
+<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="manager.ManagerController">
    <children>
       <TextField fx:id="searchField" layoutX="56.0" layoutY="94.0" prefHeight="38.0" prefWidth="234.0" />
       <ListView fx:id="concertHallList" layoutX="56.0" layoutY="143.0" prefHeight="323.0" prefWidth="286.0" />

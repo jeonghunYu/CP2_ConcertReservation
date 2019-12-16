@@ -1,4 +1,4 @@
-package reservationmanager;
+package audience;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -90,7 +90,7 @@ public class SeatStatusController implements Initializable {
 	
 	@FXML public void moveToRRM() {
 		try {
-	         Parent reserve = FXMLLoader.load(getClass().getResource("/reservationmanager/ReservationAssistant.fxml"));
+	         Parent reserve = FXMLLoader.load(getClass().getResource("/audience/ReservationAssistant.fxml"));
 	         Scene scene = new Scene(reserve);
 	         Stage primaryStage = (Stage)btnRRM.getScene().getWindow();
 	         scene.getStylesheets().add(getClass().getResource("/mainmenu/mainmenu.css").toExternalForm());

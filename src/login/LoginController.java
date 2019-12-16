@@ -48,7 +48,7 @@ public class LoginController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		try {
-			socket = new Socket("localhost", 50000);
+			socket = new Socket("cs-cnu.tk", 50000);
 			out = new PrintWriter(socket.getOutputStream(), true);
 			in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 		} catch (UnknownHostException e) {
@@ -76,7 +76,7 @@ public class LoginController implements Initializable {
 			inputLine = in.readLine();
 			if(inputLine.equals("-1")) {
 				System.out.println(1);
-				new Alert(Alert.AlertType.WARNING, "Ȯ���Ͻ� �ܼ�Ʈ�� �����ϼ���.", ButtonType.CLOSE).show();
+				new Alert(Alert.AlertType.WARNING, "아이디와 패스워드를 확인해주세요.", ButtonType.CLOSE).show();
 			} else {
 				command = inputLine.split("/");
 				name = command[0];

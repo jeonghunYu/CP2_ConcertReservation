@@ -1,4 +1,4 @@
-package requestmanager;
+package eventRegistrant;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -105,7 +105,7 @@ public class RegistrationRequestManagerController implements Initializable {
 
 	@FXML public void moveToRequest() {
 		try {
-			Parent request = FXMLLoader.load(getClass().getResource("/requestmanager/RRM_Request.fxml"));
+			Parent request = FXMLLoader.load(getClass().getResource("/eventRegistrant/RRM_Request.fxml"));
 			Scene scene = new Scene(request);
 			Stage primaryStage = (Stage)btnRequest.getScene().getWindow();
 			scene.getStylesheets().add(getClass().getResource("/mainmenu/mainmenu.css").toExternalForm());
@@ -137,7 +137,7 @@ public class RegistrationRequestManagerController implements Initializable {
 	            Parent status = null;
 	            for(int i = 0; i < RRM_RequestController.getTotalSeatNum().length; i++) {
 	               if(Integer.parseInt(RRM_RequestController.getTotalSeatNum()[i]) == Integer.parseInt(selectedConcert[1])) {
-	                  status = FXMLLoader.load(getClass().getResource("/requestmanager/SeatStatus" + i + ".fxml"));
+	                  status = FXMLLoader.load(getClass().getResource("/eventRegistrant/SeatStatus" + i + ".fxml"));
 	                  break;
 	               }
 	            }
@@ -145,7 +145,7 @@ public class RegistrationRequestManagerController implements Initializable {
 	            Stage primaryStage = (Stage)btnSeatStatus.getScene().getWindow();
 	            scene.getStylesheets().add(getClass().getResource("/mainmenu/mainmenu.css").toExternalForm());
 	            primaryStage.setScene(scene);
-	            requestmanager.SeatStatusController.setControllerType(0);
+	            eventRegistrant.SeatStatusController.setControllerType(0);
 	         }
 	      } catch (IOException e) {
 	         e.printStackTrace();

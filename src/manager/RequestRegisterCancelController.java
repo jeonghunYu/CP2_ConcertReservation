@@ -1,4 +1,4 @@
-package hallmanager;
+package manager;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -38,7 +38,7 @@ public class RequestRegisterCancelController implements Initializable {
 	      
 	      int index = concertRequestList.getFocusModel().getFocusedIndex();
 	      if(index < 0) {
-	         new Alert(Alert.AlertType.WARNING, "승인하실 콘서트를 선택해주세요.", ButtonType.CLOSE).show();
+	         new Alert(Alert.AlertType.WARNING, "승인할 콘서트를 선택해주세요.", ButtonType.CLOSE).show();
 	      }
 	      else if(index < addRequestCount) {
 	         out.println("addConcert/" + index);
@@ -108,7 +108,7 @@ public class RequestRegisterCancelController implements Initializable {
 	@FXML public void acceptRejectAction() {
 		int index = concertRequestList.getFocusModel().getFocusedIndex();
 	      if(index < 0) {
-	         new Alert(Alert.AlertType.WARNING, "승인하실 콘서트를 선택해주세요.", ButtonType.CLOSE).show();
+	         new Alert(Alert.AlertType.WARNING, "거절할 콘서트를 선택해주세요.", ButtonType.CLOSE).show();
 	      }
 	      else if(index < addRequestCount) {
 	         out.println("rejectAddRequest/" + index);

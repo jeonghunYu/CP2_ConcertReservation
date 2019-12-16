@@ -1,4 +1,4 @@
-package requestmanager;
+package eventRegistrant;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -113,7 +113,7 @@ public class RRM_RequestController implements Initializable {
 	        	 if(result < 0) {
 	        		 new Alert(Alert.AlertType.WARNING, "잔액이 부족합니다 : " + result, ButtonType.CLOSE).show();
 	        	 } else {
-	        		 new Alert(Alert.AlertType.WARNING, "요청되었습니다. 요청된 행사는 등록되기 전까지 보이지 않습니다.", ButtonType.CLOSE).show();
+	        		 new Alert(Alert.AlertType.CONFIRMATION, "요청되었습니다. 요청된 행사는 등록되기 전까지 보이지 않습니다.", ButtonType.CLOSE).show();
 	        		 login.LoginController.setBalance(login.LoginController.getBalance() - result);
 	        	 }
 	         }
@@ -123,7 +123,7 @@ public class RRM_RequestController implements Initializable {
 
 	@FXML public void moveToRRM() {
 		try {
-			Parent main = FXMLLoader.load(getClass().getResource("/requestmanager/RegistrationRequestManager.fxml"));
+			Parent main = FXMLLoader.load(getClass().getResource("/eventRegistrant/RegistrationRequestManager.fxml"));
 			Scene scene = new Scene(main);
 			Stage primaryStage = (Stage)btnRRM.getScene().getWindow();
 			scene.getStylesheets().add(getClass().getResource("/mainmenu/mainmenu.css").toExternalForm());

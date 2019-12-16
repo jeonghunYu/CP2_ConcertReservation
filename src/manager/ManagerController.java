@@ -1,4 +1,4 @@
-package hallmanager;
+package manager;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -8,6 +8,7 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.function.Predicate;
 
+import eventRegistrant.RRM_RequestController;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -19,7 +20,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import requestmanager.RRM_RequestController;
 import javafx.scene.control.ListView;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -144,7 +144,7 @@ public class ManagerController implements Initializable {
 	            
 	            for(int i = 0; i < RRM_RequestController.getTotalSeatNum().length; i++) {
 	               if(Integer.parseInt(RRM_RequestController.getTotalSeatNum()[i]) == Integer.parseInt(selectedConcert[1])) {
-	                  status = FXMLLoader.load(getClass().getResource("/requestmanager/SeatStatus" + i + ".fxml"));
+	                  status = FXMLLoader.load(getClass().getResource("/eventRegistrant/SeatStatus" + i + ".fxml"));
 	                  break;
 	               }
 	            }
@@ -152,7 +152,7 @@ public class ManagerController implements Initializable {
 	            Stage primaryStage = (Stage)btnShowHallSeats.getScene().getWindow();
 	            scene.getStylesheets().add(getClass().getResource("/mainmenu/mainmenu.css").toExternalForm());
 	            primaryStage.setScene(scene);
-	            requestmanager.SeatStatusController.setControllerType(1);
+	            eventRegistrant.SeatStatusController.setControllerType(1);
 	         }
 	      } catch (IOException e) {
 	         e.printStackTrace();

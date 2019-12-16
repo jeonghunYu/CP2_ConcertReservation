@@ -20,13 +20,13 @@
             <Label layoutX="125.0" layoutY="97.0" text="아이디 : " />
             <Label layoutX="119.0" layoutY="147.0" text="비밀번호 : " />
             <Label layoutX="119.0" layoutY="200.0" text="전화번호 : " />
-            <RadioButton fx:id="audience" layoutX="98.0" layoutY="270.0" mnemonicParsing="false" text="일반회원" textFill="WHITE" userData="audience">
+            <RadioButton fx:id="audience" layoutX="98.0" layoutY="270.0" mnemonicParsing="false" text="일반회원" userData="audience">
                <toggleGroup>
                   <ToggleGroup fx:id="authority" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton fx:id="eventRegistrant" layoutX="221.0" layoutY="270.0" mnemonicParsing="false" text="행사등록자" textFill="WHITE" toggleGroup="$authority" userData="eventRegistrant" />
-            <RadioButton fx:id="manager" layoutX="354.0" layoutY="270.0" mnemonicParsing="false" text="관리자" textFill="WHITE" toggleGroup="$authority" userData="manager" />
+            <RadioButton fx:id="eventRegistrant" layoutX="221.0" layoutY="270.0" mnemonicParsing="false" text="행사등록자" toggleGroup="$authority" userData="eventRegistrant" />
+            <RadioButton fx:id="manager" layoutX="354.0" layoutY="270.0" mnemonicParsing="false" text="관리자" toggleGroup="$authority" userData="manager" />
          </children>
       </AnchorPane>
       <Button fx:id="btnSignUp" layoutX="303.0" layoutY="416.0" mnemonicParsing="false" onAction="#signUp" text="완료" />

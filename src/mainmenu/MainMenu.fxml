@@ -10,14 +10,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainmenu.MainMenuController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainmenu.MainMenuController">
    <children>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0">
          <children>
             <Button fx:id="btnReserving" layoutX="430.0" layoutY="292.0" mnemonicParsing="false" onAction="#reserveAction" prefHeight="50.0" prefWidth="146.0" text="예매하기" />
             <Button fx:id="btnMoveToAddConcert" layoutX="605.0" layoutY="361.0" mnemonicParsing="false" onAction="#addConcertAction" prefHeight="50.0" prefWidth="146.0" text="행사 등록" />
             <Button fx:id="btnEditing" layoutX="605.0" layoutY="292.0" mnemonicParsing="false" onAction="#editScheduleAction" prefHeight="50.0" prefWidth="146.0" text="행사 스케줄 조정" />
-            <Label fx:id="recommendConcertLabel" alignment="CENTER" layoutX="29.0" layoutY="32.0" prefHeight="50.0" prefWidth="363.0" text="금일의 추천 콘서트">
+            <Label fx:id="recommendConcertLabel" alignment="CENTER" layoutX="29.0" layoutY="32.0" prefHeight="50.0" prefWidth="363.0" text="최근 등록 콘서트">
                <font>
                   <Font size="25.0" />
                </font>

@@ -1,4 +1,4 @@
-package requestmanager;
+package eventRegistrant;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -88,9 +88,9 @@ public class SeatStatusController implements Initializable {
 		try {
 			Parent reserve = null;
 			if(controllerType == 1) {
-				reserve = FXMLLoader.load(getClass().getResource("/hallmanager/ConcertHallManager.fxml"));
+				reserve = FXMLLoader.load(getClass().getResource("/manager/ConcertHallManager.fxml"));
 			} else {
-				reserve = FXMLLoader.load(getClass().getResource("/requestmanager/RegistrationRequestManager.fxml"));
+				reserve = FXMLLoader.load(getClass().getResource("/eventRegistrant/RegistrationRequestManager.fxml"));
 			}
 			Scene scene = new Scene(reserve);
 			Stage primaryStage = (Stage)btnRRM.getScene().getWindow();

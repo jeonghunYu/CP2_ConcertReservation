@@ -19,7 +19,7 @@ public class Main extends Application {
 			Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
 			Scene scene = new Scene(root);
 			scene.getStylesheets().add(getClass().getResource("/mainmenu/mainmenu.css").toExternalForm());
-			primaryStage.setTitle("�ܼ�Ʈ ���� ���α׷�");
+			primaryStage.setTitle("콘서트 예매 프로그램");
 			primaryStage.setScene(scene);
 			primaryStage.setResizable(false);
 			primaryStage.show();
