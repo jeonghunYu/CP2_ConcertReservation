@@ -34,7 +34,14 @@ public class CashManagementController implements Initializable {
 		out = login.LoginController.getOut();
 		in = login.LoginController.getIn();
 		
-		balanceLabel.setText(login.LoginController.getBalance() + "");
+		out.println("getBalance");
+	      try {
+	    	  int balance = Integer.parseInt(in.readLine());
+	          balanceLabel.setText(balance + "");
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 	}
 	
 	@FXML public void moveToMain() {
@@ -63,7 +70,6 @@ public class CashManagementController implements Initializable {
 //					오류 메시지 출력
 				} else {
 					balanceLabel.setText(result + "원");
-					login.LoginController.setBalance(result);
 				}
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
@@ -91,7 +97,6 @@ public class CashManagementController implements Initializable {
 				} else {
 					balanceLabel.setText(result + "원");
 					returnCodeField.setText(amount + "tkdvnarnjs");
-					login.LoginController.setBalance(result);
 				}
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
