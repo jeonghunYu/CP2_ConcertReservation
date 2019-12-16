@@ -21,7 +21,9 @@ import javafx.stage.Stage;
 import javafx.scene.control.ListView;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextArea;
 
 public class ReservationAssistantController implements Initializable {
@@ -91,7 +93,7 @@ public class ReservationAssistantController implements Initializable {
 			public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
 //				TODO
 				String[] concert = strConcertList[(int) newValue].split("/");
-				concertInfoTextArea.setText("Title : " + concert[0] + "\nNumberOfSeat : " + concert[1]
+				concertInfoTextArea.setText("Title : " + concert[0] + "\nseatPrice : " + concert[5] + "\nNumberOfSeat : " + concert[1]
 						+ "\nDate : " + concert[2]);
 			}
 
@@ -101,9 +103,11 @@ public class ReservationAssistantController implements Initializable {
 			@Override
 			public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
 //				TODO
-				String[] concert = strReservedList[(int) newValue].split("/");
-				concertInfoTextArea.setText("Title : " + concert[0] + "\nNumberOfSeat : " + concert[1]
-						+ "\nDate : " + concert[2]);
+				if((int) newValue >= 0) {
+					String[] concert = strReservedList[(int) newValue].split("/");
+					concertInfoTextArea.setText("Title : " + concert[0] + "\nseatPrice : " + concert[4] + "\nNumberOfSeat : " + concert[1]
+							+ "\nDate : " + concert[2]);
+				}
 			}
 
 		});
@@ -132,12 +136,14 @@ public class ReservationAssistantController implements Initializable {
 						break;
 					}
 				}
+				Scene scene = new Scene(seat);
+				Stage primaryStage = (Stage)btnReservation.getScene().getWindow();
+				scene.getStylesheets().add(getClass().getResource("/mainmenu/mainmenu.css").toExternalForm());
+				primaryStage.setScene(scene);
+			} else {
+				new Alert(Alert.AlertType.WARNING, "예매할 콘서트를 선택해주세요.", ButtonType.CLOSE).show();
 			}
 			
-			Scene scene = new Scene(seat);
-			Stage primaryStage = (Stage)btnReservation.getScene().getWindow();
-			scene.getStylesheets().add(getClass().getResource("/mainmenu/mainmenu.css").toExternalForm());
-			primaryStage.setScene(scene);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -145,7 +151,13 @@ public class ReservationAssistantController implements Initializable {
 	}
 	
 	@FXML public void reservationCancelAction() {
-		
+		if((selectedConcertIndex = reservedConcertListView.getSelectionModel().getSelectedIndex()) >= 0) {
+			out.println("cancelSeat/" + selectedConcertIndex);
+			reservedList.remove(selectedConcertIndex);
+			new Alert(Alert.AlertType.WARNING, "예매가 취소되었습니다.", ButtonType.CLOSE).show();
+		} else {
+			new Alert(Alert.AlertType.WARNING, "예매취소할 콘서트를 선택해주세요.", ButtonType.CLOSE).show();
+		}
 	}
 
 	@FXML public void moveToMain() {

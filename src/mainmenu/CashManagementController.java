@@ -11,7 +11,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.scene.control.Label;
@@ -70,23 +72,33 @@ public class CashManagementController implements Initializable {
 		}
 	}
 	@FXML public void refundMoney() {
-//		TODO getText가 숫자 범위 내에 있도록 예외처리.
-		int amount = Integer.parseInt(refundField.getText());
-		out.println("refundMoney/" + amount);
-		out.flush();
-		try {
-			int result = Integer.parseInt(in.readLine());
-			if(result == -1) {
-//				오류 메시지 출력
-			} else {
-				balanceLabel.setText(result + "원");
-				returnCodeField.setText(amount + "tkdvnarnjs");
-				login.LoginController.setBalance(result);
+		if(refundField.getText().equals("")) {
+			
+		} else {
+			for(int i = 0; i < refundField.getText().length(); i++) {
+				if (refundField.getText().charAt(i) < '0' || refundField.getText().charAt(i) > '9') {
+					new Alert(Alert.AlertType.WARNING, "숫자만 입력해주세요.", ButtonType.CLOSE).show();
+					return;
+				}
 			}
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			int amount = Integer.parseInt(refundField.getText());
+			out.println("refundMoney/" + amount);
+			out.flush();
+			try {
+				int result = Integer.parseInt(in.readLine());
+				if(result == -1) {
+					new Alert(Alert.AlertType.WARNING, "잔액을 초과하여 환불할 수 없습니다.", ButtonType.CLOSE).show();
+				} else {
+					balanceLabel.setText(result + "원");
+					returnCodeField.setText(amount + "tkdvnarnjs");
+					login.LoginController.setBalance(result);
+				}
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
+		
 	}
 
 }

@@ -108,8 +108,11 @@ public class SeatStatusController implements Initializable {
 	         out.flush();
 	         try {
 	            String result = in.readLine();
-	            if(Integer.parseInt(result) == 1) {
+	            if(result.equals("1")) {
 	               System.out.println("예약성공");
+	               new Alert(Alert.AlertType.CONFIRMATION, "예약성공!", ButtonType.CLOSE).show();
+	            } else if(result.equals("-1")) {
+	            	new Alert(Alert.AlertType.WARNING, "잔액이 부족합니다.", ButtonType.CLOSE).show();
 	            }
 	         } catch (IOException e) {
 	            e.printStackTrace();

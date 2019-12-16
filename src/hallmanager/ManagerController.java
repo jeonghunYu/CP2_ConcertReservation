@@ -9,6 +9,8 @@ import java.util.ResourceBundle;
 import java.util.function.Predicate;
 
 import javafx.application.Platform;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -73,6 +75,17 @@ public class ManagerController implements Initializable {
 				Platform.runLater(() -> concertList.add(concert[2] + " " + concert[0] + " " + concert[4] + "/" + concert[1]));
 			}
 		}
+		
+		concertHallList.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
+			@Override
+			public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+//				TODO
+				String[] concert = strConcertList[(int) newValue].split("/");
+				concertInfoTextArea.setText("Title : " + concert[0] + "\nNumberOfSeat : " + concert[1]
+						+ "\nDate : " + concert[2]);
+			}
+
+		});
 	}
 	
 	//	TODO �˻� ����ó��

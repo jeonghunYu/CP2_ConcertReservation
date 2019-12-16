@@ -64,9 +64,11 @@
             <Label text="행사명" />
             <TextField fx:id="concertNameField" maxWidth="200.0">
                <VBox.margin>
-                  <Insets bottom="20.0" />
+                  <Insets />
                </VBox.margin>
             </TextField>
+            <Label text="좌석당 가격" />
+            <TextField fx:id="seatPriceField" maxWidth="200.0" promptText="숫자만 입력하세요." />
          </children>
          <opaqueInsets>
             <Insets />

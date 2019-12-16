@@ -54,6 +54,7 @@ public class RRM_RequestController implements Initializable {
 	private static String[] totalSeatNum = {"32", "4"};
 	
 	private int index;
+	@FXML TextField seatPriceField;
 	
 	public static String[] getTotalSeatNum() {
 		return totalSeatNum;
@@ -82,8 +83,15 @@ public class RRM_RequestController implements Initializable {
 	@FXML public void requestAction() throws UnknownHostException, IOException {
 	      if(concertNameField.getText().equals("")) {
 	         new Alert(Alert.AlertType.WARNING, "등록하실 행사명을 입력해주세요.", ButtonType.CLOSE).show();
-	      }
-	      else {
+	      } else if(seatPriceField.getText().equals("")) {
+	    	 new Alert(Alert.AlertType.WARNING, "가격을 입력하세요.", ButtonType.CLOSE).show();
+	      } else {
+	    	  for(int i = 0; i < seatPriceField.getText().length(); i++) {
+	    		  if(seatPriceField.getText().charAt(i) < '0' || seatPriceField.getText().charAt(i) > '9') {
+	    			  new Alert(Alert.AlertType.WARNING, "가격은 숫자만 입력해주세요.", ButtonType.CLOSE).show();
+	    			  return;
+	    		  }
+	    	  }
 	         int year = concertDate.getValue().getYear();
 	         int month = concertDate.getValue().getMonthValue();
 	         int day = concertDate.getValue().getDayOfMonth();
@@ -96,7 +104,7 @@ public class RRM_RequestController implements Initializable {
 	         if(day < 10) date += "0";
 	         date += Integer.toString(day);
 	         
-	         out.println("requestRegistration/" + concertNameField.getText() + "/" + date + "/" + totalSeatNum[index]);
+	         out.println("requestRegistration/" + concertNameField.getText() + "/" + date + "/" + totalSeatNum[index] + "/" + seatPriceField.getText());
 	         out.flush();
 	         int result = Integer.parseInt(in.readLine());
 	         if(result == -1) {
